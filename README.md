@@ -1,6 +1,6 @@
 ## Netflix Clone
 
-📺📀🔊
+🖥️ 🎬 📀
 
 cloning the popular site netflix using: 
 - JavaScript
