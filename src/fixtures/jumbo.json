@@ -3,24 +3,41 @@
     "id": 1,
     "title": "Enjoy on your TV.",
     "subtitle": "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
-    "image": "/images/misc/home-tv.jpg",
+    "image": "/images/misc/home-tv.png",
+    "video": "/images/video/guide.m4v",
+    "maxWidth": 73,
+    "maxHeight": 54,
+    "top": 47,
     "alt": "Tiger King on Netflix",
-    "direction": "row"
+    "direction": "row",
+    "videoCard": true,
+    "imageCard": false
   },
   {
     "id": 2,
     "title": "Download your programmes to watch on the go.",
-    "subtitle": "Save your data and watch all your favourites offline.",
+    "subtitle": "Save your favorites easily and always have something to watch.",
     "image": "/images/misc/home-mobile.jpg",
+    "cardImage": "/images/misc/card-image.png",
     "alt": "Watch on mobile",
-    "direction": "row-reverse"
+    "direction": "row-reverse",
+    "videoCard": false,
+    "imageCard": true,
+    "cardTitle": "Stranger Things",
+    "cardSubtitle": "Downloading..."
   },
   {
     "id": 3,
     "title": "Watch everywhere.",
-    "subtitle": "Stream unlimited films and TV programmes on your phone, tablet, laptop and TV without paying more.",
-    "image": "/images/misc/home-imac.jpg",
+    "subtitle": "Stream unlimited films and TV programs on your phone, tablet, laptop and TV without paying more.",
+    "image": "/images/misc/home-imac.png",
+    "video": "/images/video/stranger-things.m4v",
+    "maxWidth": 63,
+    "maxHeight": 47,
+    "top": 34,
     "alt": "Money Heist on Netflix",
-    "direction": "row"
+    "direction": "row",
+    "videoCard": true,
+    "imageCard": false
   }
 ]
