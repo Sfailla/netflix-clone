@@ -19,7 +19,7 @@ import {
 	ImageOverlay
 } from './styles/jumbotron';
 
-function Jumbotron({ children, direction = 'row', overlay, ...restProps }) {
+export default function Jumbotron({ children, direction = 'row', ...restProps }) {
 	return (
 		<Item>
 			<Inner {...restProps} direction={direction}>
@@ -94,5 +94,3 @@ Jumbotron.Video = function JumbotronVideo({ children, ...restProps }) {
 Jumbotron.Source = function JumbotronVideoSource({ ...restProps }) {
 	return <Source {...restProps} />;
 };
-
-export default Jumbotron;

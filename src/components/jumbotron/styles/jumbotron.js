@@ -22,7 +22,13 @@ export const Inner = styled.div`
 	}
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+	@media (max-width: 100px) {
+		${Item}: last-of-type h2 {
+			margin-bottom: 50px;
+		}
+	}
+`;
 
 export const Pane = styled.div`
 	width: 50%;
@@ -86,6 +92,14 @@ export const Card = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 8px 12px;
+
+	&::after {
+		content: '';
+		width: 48px;
+		height: 60px;
+		display: block;
+		background: url('/images/video/download-icon.gif') no-repeat center center / 100%;
+	}
 `;
 
 export const CardImage = styled.img`
@@ -96,8 +110,7 @@ export const CardImage = styled.img`
 `;
 
 export const Text = styled.div`
-	flex-grow: 1;
-	flex-shrink: 1;
+	flex: 1 1 auto;
 	margin: .3em 0;
 `;
 
