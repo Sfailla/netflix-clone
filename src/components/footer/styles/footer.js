@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-	padding: 70px 45px;
+	padding: 45px 70px 0px 70px;
 	margin: 0 auto;
 	max-width: 1000px;
 `;
@@ -16,6 +16,7 @@ export const Row = styled.div``;
 export const Card = styled.div`
 	width: 100%;
 	height: 100%;
+	padding-bottom: 20px;
 `;
 
 export const Link = styled.a`
@@ -25,7 +26,6 @@ export const Link = styled.a`
 	margin-bottom: 16px;
 	text-decoration: none;
 	white-space: nowrap;
-
 	padding-right: 12px;
 	vertical-align: top;
 	width: 25%;
@@ -42,7 +42,7 @@ export const Link = styled.a`
 
 export const Title = styled.div`
 	font-size: 16px;
-	color: #757575;
+	color: #fff;
 	margin: 0 0 30px;
 `;
 
