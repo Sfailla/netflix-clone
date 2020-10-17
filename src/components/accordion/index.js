@@ -43,8 +43,12 @@ Accordion.Item = function AccordionItem({ children, ...restProps }) {
 	);
 };
 
-Accordion.Svg = function AccordionSvg({ children, ...restProps }) {
-	return <Svg {...restProps}>{children}</Svg>;
+Accordion.Svg = function AccordionSvg({ d, ...restProps }) {
+	return (
+		<Svg {...restProps}>
+			<path d={d} />
+		</Svg>
+	);
 };
 
 Accordion.Header = function AccordionHeader({ children, onClick, ...restProps }) {
@@ -61,9 +65,11 @@ Accordion.Header = function AccordionHeader({ children, onClick, ...restProps })
 			{...restProps}
 		>
 			{children}
-			<Accordion.Svg toggle={toggle} viewBox="0 0 30 30">
-				<path d="M23.73 16.23h-7.5v7.5h-2.461v-7.5h-7.5v-2.461h7.5v-7.5h2.461v7.5h7.5v2.461z" />
-			</Accordion.Svg>
+			<Accordion.Svg
+				toggle={toggle}
+				d="M23.73 16.23h-7.5v7.5h-2.461v-7.5h-7.5v-2.461h7.5v-7.5h2.461v7.5h7.5v2.461z"
+				viewBox="0 0 30 30"
+			/>
 		</Header>
 	);
 };

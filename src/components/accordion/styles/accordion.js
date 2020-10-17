@@ -106,14 +106,13 @@ export const Content = styled.span`
 	padding: 19.2px;
 `;
 
-export const Svg = styled.svg.attrs({
-	version: '1.1',
-	xmlns: 'http://www.w3.org/2000/svg',
-	xmlnsXlink: 'http://www.w3.org/1999/xlink'
-})`
-  width: 30px;
-  height: 30px;
-  fill: #FFF;
-  transform: ${({ toggle }) => (toggle ? 'rotate(-45deg)' : 'rotate(0deg)')};
-  transition: transform .5s cubic-bezier(.5, 0, .1, 1);
+export const Svg = styled.svg`
+	width: 30px;
+	height: 30px;
+	fill: #fff;
+	transform: ${({ toggle }) => (toggle ? 'rotate(-45deg)' : 'rotate(0deg)')};
+	transition: ${({ toggle }) =>
+		toggle
+			? 'transform .25s cubic-bezier(.5, 0, .1, 1)'
+			: 'transform .5s cubic-bezier(.5, 0, .1, 1) .2s'};
 `;

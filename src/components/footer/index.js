@@ -12,8 +12,7 @@ import {
 	Wrapper,
 	Select,
 	Option,
-	Globe,
-	Arrow
+	Svg
 } from './styles/footer';
 
 export default function Footer({ children, ...restProps }) {
@@ -64,10 +63,18 @@ Footer.Option = function FooterOption({ children, ...restProps }) {
 	return <Option {...restProps}>{children}</Option>;
 };
 
-Footer.Globe = function FooterGlobe({ children, ...restProps }) {
-	return <Globe {...restProps}>{children}</Globe>;
-};
+// Footer.Globe = function FooterGlobe({ children, ...restProps }) {
+// 	return <Globe {...restProps}>{children}</Globe>;
+// };
 
-Footer.Arrow = function FooterArrow({ children, ...restProps }) {
-	return <Arrow {...restProps}>{children}</Arrow>;
+// Footer.Arrow = function FooterArrow({ children, ...restProps }) {
+// 	return <Arrow {...restProps}>{children}</Arrow>;
+// };
+
+Footer.Svg = function FooterSvg({ globe, d, ...restProps }) {
+	return (
+		<Svg globe={globe} {...restProps}>
+			<path d={d} />
+		</Svg>
+	);
 };

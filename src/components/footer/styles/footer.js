@@ -83,28 +83,11 @@ export const Select = styled.select`
 `;
 export const Option = styled.option``;
 
-export const Globe = styled.svg.attrs({
-	version: '1.1',
-	xmlns: 'http://www.w3.org/2000/svg',
-	xmlnsXlink: 'http://www.w3.org/1999/xlink'
-})`
-	fill: #FFF;
-	width: 20px;
-	height: 20px;
+export const Svg = styled.svg`
+	fill: #fff;
+	width: ${({ globe }) => (globe ? '20px' : '19px')};
+	height: ${({ globe }) => (globe ? '20px' : '23px')};
 	position: absolute;
-	top: 16px;
-	left: 15px;
-`;
-
-export const Arrow = styled.svg.attrs({
-	version: '1.1',
-	xmlns: 'http://www.w3.org/2000/svg',
-	xmlnsXlink: 'http://www.w3.org/1999/xlink'
-})`
-	fill: #FFF;
-	width: 19px;
-	height: 23px;
-	position: absolute;
-	top: 15px;
-	right: 10px;
+	${({ globe }) => (globe ? 'top: 16px' : 'top: 15px')};
+	${({ globe }) => (globe ? 'left: 15px' : 'right: 10px')};
 `;
