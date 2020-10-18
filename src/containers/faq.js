@@ -1,8 +1,7 @@
 import React from 'react';
 import FaqData from '../fixtures/faqs.json';
 
-import { OptForm } from '../components';
-import { Accordion } from '../components';
+import { OptForm, Accordion } from '../components';
 
 export default function AccordionContainer() {
 	return (
