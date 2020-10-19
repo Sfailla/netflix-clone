@@ -40,14 +40,14 @@ export const Wrapper = styled.div`
 `;
 
 export const EmailWrapper = styled.div`
-	width: 500px;
+	width: 100%;
+	max-width: 500px;
 	height: auto;
 	position: relative;
 `;
 
 export const Input = styled.input`
 	width: 100%;
-	max-width: 500px;
 	padding: 10px;
 	height: 70px;
 	&:focus {

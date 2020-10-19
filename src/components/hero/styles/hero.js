@@ -1,13 +1,13 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-	padding: 70px 45px;
+	padding: 0 45px 140px 45px;
 	border-bottom: 8px solid #222;
 	color: #fff;
 	z-index: 5;
 
 	@media (max-width: 550px) {
-		padding: 50px 5%;
+		padding: 0 5% 100px 5%;
 	}
 `;
 
@@ -25,6 +25,11 @@ export const Title = styled.h1`
 	max-width: 800px;
 	margin: .67em auto;
 
+	@media (max-width: 1450px) {
+		font-size: 50px;
+		max-width: 640px;
+	}
+
 	@media (max-width: 750px) {
 		font-size: 28px;
 	}
@@ -36,6 +41,10 @@ export const SubTitle = styled.h2`
 	line-height: 1.3;
 	font-weight: 400;
 	margin: 16px auto;
+
+	@media (max-width: 1450px) {
+		max-width: 640px;
+	}
 
 	@media (max-width: 750px) {
 		font-size: 18px;
