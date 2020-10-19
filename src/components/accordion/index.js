@@ -76,8 +76,8 @@ Accordion.Header = function AccordionHeader({ children, onClick, ...restProps })
 
 Accordion.Body = function AccordionBody({ children, ...restProps }) {
 	const { state } = React.useContext(ToggleContext);
-	const { maxHeight, toggle } = state;
-	console.log(toggle);
+	const { maxHeight } = state;
+
 	return (
 		<Body maxHeight={maxHeight} {...restProps}>
 			{children}
