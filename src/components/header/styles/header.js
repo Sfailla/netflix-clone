@@ -87,7 +87,8 @@ export const ButtonLink = styled(Link)`
   color: white;
   border: 0;
   font-size: 15px;
-  border-radius: 3px;
+	border-radius: 3px;
+	margin-top: 8px;
   padding: 8px 17px;
   cursor: pointer;
   text-decoration: none;
