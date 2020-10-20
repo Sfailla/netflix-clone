@@ -1,8 +1,8 @@
 import React from 'react';
 import {
 	Container,
-	Item,
-	Inner,
+	Column,
+	Row,
 	Pane,
 	Title,
 	Subtitle,
@@ -20,14 +20,24 @@ import {
 } from './styles/jumbotron';
 
 export default function Jumbotron({ children, direction = 'row', ...restProps }) {
-	return (
-		<Item>
-			<Inner {...restProps} direction={direction}>
-				{children}
-			</Inner>
-		</Item>
-	);
+	return <Container {...restProps}>{children}</Container>;
 }
+
+Jumbotron.Column = function JumbotronColumn({
+	direction = 'row',
+	children,
+	...restProps
+}) {
+	return (
+		<Column {...restProps}>
+			<Row direction={direction}>{children}</Row>
+		</Column>
+	);
+};
+
+Jumbotron.Row = function JumbotronRow({ direction = 'row', children }) {
+	return <Row direction={direction}>{children}</Row>;
+};
 
 Jumbotron.Container = function JumbotronContainer({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;

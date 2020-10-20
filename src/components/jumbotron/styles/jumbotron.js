@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const Item = styled.div`
+export const Column = styled.div`
 	display: flex;
 	border-bottom: 8px solid #222;
 	padding: 50px 5%;
@@ -8,7 +8,7 @@ export const Item = styled.div`
 	overflow: hidden;
 `;
 
-export const Inner = styled.div`
+export const Row = styled.div`
 	display: flex;
 	flex-direction: ${({ direction }) => direction};
 	align-items: center;
@@ -24,7 +24,7 @@ export const Inner = styled.div`
 
 export const Container = styled.div`
 	@media (max-width: 100px) {
-		${Item}: last-of-type h2 {
+		${Column}: last-of-type h2 {
 			margin-bottom: 50px;
 		}
 	}

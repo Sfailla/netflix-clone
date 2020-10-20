@@ -4,42 +4,42 @@ import { Jumbotron } from '../components';
 
 export default function JumbotronContainer() {
 	return (
-		<Jumbotron.Container>
-			{JumbotronData.map(item => (
-				<Jumbotron key={item.id} direction={item.direction}>
+		<Jumbotron>
+			{JumbotronData.map(data => (
+				<Jumbotron.Column key={data.id} direction={data.direction}>
 					<Jumbotron.Pane>
-						<Jumbotron.Title>{item.title}</Jumbotron.Title>
-						<Jumbotron.Subtitle>{item.subtitle}</Jumbotron.Subtitle>
+						<Jumbotron.Title>{data.title}</Jumbotron.Title>
+						<Jumbotron.Subtitle>{data.subtitle}</Jumbotron.Subtitle>
 					</Jumbotron.Pane>
 					<Jumbotron.Pane>
 						<Jumbotron.ImageContainer>
-							<Jumbotron.Image src={item.image} alt={item.alt} />
-							{item.videoCard ? (
+							<Jumbotron.Image src={data.image} alt={data.alt} />
+							{data.videoCard ? (
 								<Jumbotron.Overlay
-									maxWidth={item.maxWidth}
-									maxHeight={item.maxHeight}
-									top={item.top}
+									maxWidth={data.maxWidth}
+									maxHeight={data.maxHeight}
+									top={data.top}
 								>
 									<Jumbotron.Video autoPlay loop muted playsInline>
-										<Jumbotron.Source src={item.video} type="video/mp4" />
+										<Jumbotron.Source src={data.video} type="video/mp4" />
 									</Jumbotron.Video>
 								</Jumbotron.Overlay>
 							) : null}
-							{item.imageCard ? (
+							{data.imageCard ? (
 								<Jumbotron.Card>
-									<Jumbotron.CardImage src={item.cardImage} />
+									<Jumbotron.CardImage src={data.cardImage} />
 									<Jumbotron.Text>
-										<Jumbotron.CardTitle>{item.cardTitle}</Jumbotron.CardTitle>
+										<Jumbotron.CardTitle>{data.cardTitle}</Jumbotron.CardTitle>
 										<Jumbotron.CardSubtitle>
-											{item.cardSubtitle}
+											{data.cardSubtitle}
 										</Jumbotron.CardSubtitle>
 									</Jumbotron.Text>
 								</Jumbotron.Card>
 							) : null}
 						</Jumbotron.ImageContainer>
 					</Jumbotron.Pane>
-				</Jumbotron>
+				</Jumbotron.Column>
 			))}
-		</Jumbotron.Container>
+		</Jumbotron>
 	);
 }
