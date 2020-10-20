@@ -59,7 +59,7 @@ export const Item = styled.div`
 
   display: block;
   text-align: left;
-  background: #000;
+	background: #000;
 }
 `;
 
@@ -74,6 +74,7 @@ export const Header = styled.div`
 	color: white;
 	font-size: 26px;
 	font-weight: 400;
+	cursor: pointer;
 
 	@media (max-width: 949px) {
 		font-size: 20px;
@@ -87,13 +88,13 @@ export const Header = styled.div`
 export const Body = styled.div`
 	display: block;
 	font-size: 23px;
-	max-height: ${({ maxHeight }) => maxHeight}px;
 	color: white;
+	height: auto;
+	max-height: ${({ toggle }) => (toggle ? '1000px' : '0')};
 	background-color: #303030;
 	overflow: hidden;
 	white-space: pre-wrap;
-
-	transition: max-height .5s cubic-bezier(.5, 0, .1, 1);
+	transition: max-height 1s cubic-bezier(.5, 0, .1, 1);
 
 	@media (max-width: 650px) {
 		font-size: 18px;
@@ -114,6 +115,6 @@ export const Svg = styled.svg`
 	transform: ${({ toggle }) => (toggle ? 'rotate(-45deg)' : 'rotate(0deg)')};
 	transition: ${({ toggle }) =>
 		toggle
-			? 'transform .25s cubic-bezier(.5, 0, .1, 1)'
-			: 'transform .5s cubic-bezier(.5, 0, .1, 1) .2s'};
+			? 'transform .25s cubic-bezier(.5, 0, .1, 1) .1s'
+			: 'transform .25s cubic-bezier(.5, 0, .1, 1)'};
 `;
