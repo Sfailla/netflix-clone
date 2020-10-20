@@ -1,22 +1,37 @@
 import React from 'react';
 import FaqData from '../fixtures/faqs.json';
 
-import { OptForm, Accordion } from '../components';
+import AccordionStyles from '../components/accordion/accordionStyles';
+import Accordion from '../components/accordion';
+import { OptForm } from '../components';
 
 export default function AccordionContainer() {
+	const [ activeEventKey, setActiveEventKey ] = React.useState(0);
+
 	return (
-		<Accordion>
-			<Accordion.Title>Frequently Asked Questions</Accordion.Title>
-			<Accordion.Frame>
-				{FaqData.map(data => (
-					<Accordion.Item key={data.id}>
-						<Accordion.Header>{data.header}</Accordion.Header>
-						<Accordion.Body>
-							<Accordion.Content>{data.body}</Accordion.Content>
-						</Accordion.Body>
-					</Accordion.Item>
-				))}
-			</Accordion.Frame>
+		<AccordionStyles>
+			<AccordionStyles.Title>Frequently Asked Questions</AccordionStyles.Title>
+			<Accordion
+				element={AccordionStyles.Frame}
+				activeEventKey={activeEventKey}
+				onToggle={setActiveEventKey}
+			>
+				{FaqData.map(({ header, body, id }) => {
+					return (
+						<AccordionStyles.Item key={id}>
+							<Accordion.Toggle element={AccordionStyles.Header} eventKey={id}>
+								{header}
+								<AccordionStyles.Svg toggle={activeEventKey === id} />
+							</Accordion.Toggle>
+							<AccordionStyles.Body toggle={activeEventKey === id}>
+								<Accordion.Collapse eventKey={id} element={AccordionStyles.Content}>
+									{body}
+								</Accordion.Collapse>
+							</AccordionStyles.Body>
+						</AccordionStyles.Item>
+					);
+				})}
+			</Accordion>
 			<OptForm>
 				<OptForm.Text>
 					Ready to watch? Enter your email to create or restart your membership
@@ -35,6 +50,6 @@ export default function AccordionContainer() {
 					</OptForm.Button>
 				</OptForm.Wrapper>
 			</OptForm>
-		</Accordion>
+		</AccordionStyles>
 	);
 }
