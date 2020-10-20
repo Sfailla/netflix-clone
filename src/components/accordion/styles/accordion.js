@@ -91,6 +91,7 @@ export const Body = styled.div`
 	color: white;
 	background-color: #303030;
 	overflow: hidden;
+	white-space: pre-wrap;
 
 	transition: max-height .5s cubic-bezier(.5, 0, .1, 1);
 
