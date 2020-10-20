@@ -5,6 +5,7 @@ import * as ROUTES from './constants/routes';
 import firebase, { FirebaseContext } from './firebase';
 
 import Home from './pages/Home';
+import SignIn from './pages/Sign_In';
 
 function App() {
 	return (
@@ -13,6 +14,9 @@ function App() {
 				<Switch>
 					<Route exact path={ROUTES.HOME}>
 						<Home />
+					</Route>
+					<Route exact path={ROUTES.SIGN_IN}>
+						<SignIn />
 					</Route>
 				</Switch>
 			</FirebaseContext.Provider>
