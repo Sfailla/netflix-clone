@@ -1,90 +1,69 @@
 import React from 'react';
+import { useAccordionContext } from './hooks';
+import AccordionContext from './AccordionContext';
 
-import {
-	Container,
-	Inner,
-	Title,
-	Frame,
-	Item,
-	Header,
-	Body,
-	Content,
-	Svg
-} from './styles/accordion';
+const useAccordionClick = (eventKey, onClick) => {
+	const { onToggle, activeEventKey } = useAccordionContext();
+	return event => {
+		event.persist();
+		onToggle(eventKey === activeEventKey ? null : eventKey);
+		if (onClick) {
+			console.log('clicked');
+			onClick(event);
+		}
+	};
+};
 
-const ToggleContext = React.createContext();
-
-export default function Accordion({ children, maxHeight, ...restProps }) {
+function Accordion({
+	element: Component,
+	activeEventKey,
+	onToggle,
+	children,
+	...otherProps
+}) {
+	const context = React.useMemo(
+		() => {
+			return {
+				activeEventKey,
+				onToggle
+			};
+		},
+		[ activeEventKey, onToggle ]
+	);
 	return (
-		<Container {...restProps}>
-			<Inner>{children}</Inner>
-		</Container>
+		<AccordionContext.Provider value={context}>
+			<Component {...otherProps}>{children}</Component>
+		</AccordionContext.Provider>
 	);
 }
 
-Accordion.Title = function AccordionTitle({ children, ...restProps }) {
-	return <Title {...restProps}>{children}</Title>;
-};
-
-Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
-	return <Frame {...restProps}>{children}</Frame>;
-};
-
-Accordion.Item = function AccordionItem({ children, ...restProps }) {
-	const [ state, setState ] = React.useState({
-		toggle: false,
-		maxHeight: 0
-	});
+Accordion.Toggle = function Toggle({
+	element: Component,
+	eventKey,
+	onClick,
+	children,
+	...otherProps
+}) {
+	const accordionClick = useAccordionClick(eventKey, onClick);
 
 	return (
-		<ToggleContext.Provider value={{ state, setState }}>
-			<Item {...restProps}>{children}</Item>
-		</ToggleContext.Provider>
-	);
-};
-
-Accordion.Svg = function AccordionSvg({ d, ...restProps }) {
-	return (
-		<Svg {...restProps}>
-			<path d={d} />
-		</Svg>
-	);
-};
-
-Accordion.Header = function AccordionHeader({ children, onClick, ...restProps }) {
-	const { state, setState } = React.useContext(ToggleContext);
-	const { toggle } = state;
-	return (
-		<Header
-			onClick={() => {
-				setState({
-					toggle: !toggle,
-					maxHeight: toggle ? 0 : 1200
-				});
-			}}
-			{...restProps}
-		>
+		<Component onClick={accordionClick} {...otherProps}>
 			{children}
-			<Accordion.Svg
-				toggle={toggle}
-				d="M23.73 16.23h-7.5v7.5h-2.461v-7.5h-7.5v-2.461h7.5v-7.5h2.461v7.5h7.5v2.461z"
-				viewBox="0 0 30 30"
-			/>
-		</Header>
+		</Component>
 	);
 };
 
-Accordion.Body = function AccordionBody({ children, ...restProps }) {
-	const { state } = React.useContext(ToggleContext);
-	const { maxHeight } = state;
+Accordion.Collapse = function Collapse({
+	element: Component,
+	eventKey,
+	children,
+	...otherProps
+}) {
+	const { activeEventKey } = useAccordionContext();
 
-	return (
-		<Body maxHeight={maxHeight} {...restProps}>
-			{children}
-		</Body>
-	);
+	return activeEventKey === eventKey ? (
+		<Component {...otherProps}>{children}</Component>
+	) : null;
 };
 
-Accordion.Content = function AccordionContent({ children, ...restProps }) {
-	return <Content {...restProps}>{children}</Content>;
-};
+export default Accordion;
