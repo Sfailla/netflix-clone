@@ -1,6 +1,6 @@
 import React from 'react';
 import { Hero, OptForm } from '../components';
-import { Jumbotron, Footer, Accordion, Header } from '../containers';
+import { Jumbotron, Footer, Header, Accordion } from '../containers';
 
 export default function Home() {
 	return (
