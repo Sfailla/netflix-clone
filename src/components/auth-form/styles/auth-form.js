@@ -47,14 +47,78 @@ export const Wrapper = styled.div`
 
 	@media (max-width: 740px) {
 		min-height: 550px;
+		padding: 60px 0 40px;
 		flex-grow: 1;
 	}
 `;
-export const Form = styled.form``;
-export const FormGroup = styled.div``;
-export const Input = styled.input``;
-export const Label = styled.label``;
-export const Error = styled.p``;
-export const Button = styled.button``;
+export const Form = styled.form`
+	width: inherit;
+	height: inherit;
+`;
+
+export const FormGroup = styled.div`
+	padding-bottom: 16px;
+	max-width: 100%;
+`;
+
+export const LabelAnimationWrapper = styled.div`
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transition: all .2s ease-out;
+`;
+
+export const Input = styled.input`
+	width: 100%;
+	border-radius: 4px;
+	border: 0;
+	border-bottom: 2px solid #e87c03;
+	height: 50px;
+	line-height: 50px;
+	padding: 16px 20px 0px;
+	color: white;
+	background-color: #333;
+
+	&:focus {
+		outline: 0;
+		background: #454545;
+	}
+
+	&:focus + label,
+	&:active + label,
+	&:not(:placeholder-shown) + label {
+		transform: translateY(0);
+		top: 6px;
+		font-weight: 700;
+		font-size: 13px;
+	}
+`;
+export const Label = styled.label`
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+`;
+export const Error = styled.p`
+	display: inline-block;
+	color: #e87c03;
+	margin-bottom: -6px;
+	padding: 6px 3px;
+	font-size: 13px;
+`;
+export const Button = styled.button`
+	width: 100%;
+	padding: 16px;
+	background: #e50914;
+	border-radius: 4px;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 24px 0 12px;
+	color: white;
+	cursor: pointer;
+	border: 0;
+`;
+
 export const SignUpLink = styled(Link)``;
 export const HelpLink = styled(Link)``;

@@ -3,47 +3,67 @@ import React from 'react';
 import {
 	Container,
 	Title,
+	Card,
 	Wrapper,
+	Form,
+	FormGroup,
 	Input,
 	Label,
+	LabelAnimationWrapper,
 	Error,
 	Button,
 	HelpLink,
 	SignUpLink
-} from './styles/form';
+} from './styles/auth-form';
 
-export default function Form({ children, ...restProps }) {
+export default function SignIn({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
 }
 
-Form.Title = function FormTitle({ children, ...restProps }) {
+SignIn.Title = function SignInTitle({ children, ...restProps }) {
 	return <Title {...restProps}>{children}</Title>;
 };
 
-Form.Wrapper = function FormWrapper({ children, ...restProps }) {
+SignIn.Card = function SignInCard({ children, ...restProps }) {
+	return <Card {...restProps}>{children}</Card>;
+};
+
+SignIn.Wrapper = function SignInWrapper({ children, ...restProps }) {
 	return <Wrapper {...restProps}>{children}</Wrapper>;
 };
 
-Form.Input = function FormInput({ children, ...restProps }) {
-	return <Input {...restProps}>{children}</Input>;
+SignIn.Form = function SignInForm({ children, ...restProps }) {
+	return <Form {...restProps}>{children}</Form>;
 };
 
-Form.Label = function FormLabel({ children, ...restProps }) {
+SignIn.FormGroup = function SignInFormGroup({ children, ...restProps }) {
+	return <FormGroup {...restProps}>{children}</FormGroup>;
+};
+
+SignIn.LabelAnimationWrapper = function SignInLabelAnimationWrapper({ children }) {
+	return <LabelAnimationWrapper>{children}</LabelAnimationWrapper>;
+};
+
+SignIn.Input = function SignInInput({ children, ...restProps }) {
+	return <Input {...restProps} />;
+};
+
+SignIn.Label = function SignInLabel({ children, ...restProps }) {
 	return <Label {...restProps}>{children}</Label>;
 };
 
-Form.Error = function FormError({ children, ...restProps }) {
+SignIn.Error = function SignInError({ children, ...restProps }) {
 	return <Error {...restProps}>{children}</Error>;
 };
 
-Form.Button = function FormButton({ children, ...restProps }) {
+SignIn.Button = function SignInButton({ children, ...restProps }) {
 	return <Button {...restProps}>{children}</Button>;
 };
 
-Form.HelpLink = function FormHelpLink({ children, ...restProps }) {
+SignIn.HelpLink = function SignInHelpLink({ children, ...restProps }) {
 	return <HelpLink {...restProps}>{children}</HelpLink>;
 };
 
-Form.SignUpLink = function FormSignUpLink({ children, ...restProps }) {
+SignIn.SignUpLink = function SignInSignUpLink({ children, ...restProps }) {
 	return <SignUpLink {...restProps}>{children}</SignUpLink>;
 };
