@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 export const Container = styled.div`
 	padding: 70px 45px;
@@ -87,25 +87,31 @@ export const Header = styled.div`
 
 export const Body = styled.div`
 	display: block;
+	overflow: hidden;
+	background-color: #303030;
+	max-height: ${({ toggle }) => (toggle ? '1000px' : '0')};
+	transition: ${({ toggle }) =>
+		toggle
+			? 'max-height .5s cubic-bezier(.5, 0, .1, 1)'
+			: 'max-height .25s cubic-bezier(.5, 0, .1, 1)'};
+`;
+
+export const Content = styled.div`
+	padding: 19.2px;
 	font-size: 23px;
 	color: white;
-	height: auto;
-	max-height: ${({ toggle }) => (toggle ? '1000px' : '0')};
-	background-color: #303030;
-	overflow: hidden;
 	white-space: pre-wrap;
-	transition: max-height 1s cubic-bezier(.5, 0, .1, 1);
 
 	@media (max-width: 650px) {
 		font-size: 18px;
 	}
 `;
 
-export const Content = styled.span`
+export const Closed = styled.div`
 	width: 100%;
-	height: 100%;
-	display: block;
-	padding: 19.2px;
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height 1s cubic-bezier(.5, 0, .1, 1);
 `;
 
 export const Svg = styled.svg`
@@ -115,6 +121,6 @@ export const Svg = styled.svg`
 	transform: ${({ toggle }) => (toggle ? 'rotate(-45deg)' : 'rotate(0deg)')};
 	transition: ${({ toggle }) =>
 		toggle
-			? 'transform .25s cubic-bezier(.5, 0, .1, 1) .1s'
-			: 'transform .25s cubic-bezier(.5, 0, .1, 1)'};
+			? 'transform .25s cubic-bezier(.5, 0, .1, 1) '
+			: 'transform .25s cubic-bezier(.5, 0, .1, 1) .2s'};
 `;
