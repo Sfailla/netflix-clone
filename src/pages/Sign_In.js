@@ -5,6 +5,7 @@ export default function SignIn() {
 	return (
 		<React.Fragment>
 			<Header />
+
 			<Footer />
 		</React.Fragment>
 	);
