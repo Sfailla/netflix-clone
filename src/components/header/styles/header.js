@@ -7,8 +7,6 @@ export const Background = styled.div`
 	height: auto;
 `;
 
-export const Navigation = styled.div``;
-
 export const BackgroundImg = styled.div`
 	background: url(${({ src }) =>
 			src ? `../images/misc/${src}.jpg` : '../images/misc/netflix-home-bg.jpg'})

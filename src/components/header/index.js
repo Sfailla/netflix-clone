@@ -3,7 +3,6 @@ import {
 	Background,
 	BackgroundImg,
 	Container,
-	Navigation,
 	Frame,
 	Logo,
 	Button,
@@ -14,8 +13,11 @@ import {
 export default function Header({ bg, children, ...restProps }) {
 	return (
 		<Background bg={bg} {...restProps}>
-			{bg && <Header.BackgroundImg {...restProps}>{children}</Header.BackgroundImg>}
-			{children}
+			{bg ? (
+				<Header.BackgroundImg {...restProps}>{children}</Header.BackgroundImg>
+			) : (
+				children
+			)}
 		</Background>
 	);
 }
@@ -26,10 +28,6 @@ Header.BackgroundImg = function HeaderBackgroundImg({ children, ...restProps }) 
 
 Header.Container = function HeaderContainer({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
-};
-
-Header.Navigation = function HeaderNavigation({ children, ...restProps }) {
-	return <Navigation {...restProps}>{children}</Navigation>;
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
