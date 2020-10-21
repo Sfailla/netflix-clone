@@ -25,7 +25,6 @@ export const Link = styled.a`
 	color: #757575;
 	margin-bottom: 16px;
 	text-decoration: none;
-	white-space: nowrap;
 	padding-right: 12px;
 	vertical-align: top;
 	width: 25%;
