@@ -16,10 +16,8 @@ export default function Home() {
 							</OptForm.Text>
 							<OptForm.Wrapper>
 								<OptForm.EmailWrapper>
-									<OptForm.Input />
-									<OptForm.Label placeholder="Email address">
-										Email address
-									</OptForm.Label>
+									<OptForm.Input placeholder=" " />
+									<OptForm.Label>Email address</OptForm.Label>
 								</OptForm.EmailWrapper>
 								<OptForm.Button>
 									get started
