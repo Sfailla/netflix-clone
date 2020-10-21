@@ -54,7 +54,8 @@ export const Input = styled.input`
 		border-color: #0071eb;
 		outline: 0;
 	}
-	&:focus + label {
+	&:focus + label,
+	&:not(:placeholder-shown) + label {
 		transform: translateY(0);
 		top: 6px;
 		font-weight: 700;
