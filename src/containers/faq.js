@@ -12,9 +12,9 @@ export default function AccordionContainer() {
 		<AccordionStyles>
 			<AccordionStyles.Title>Frequently Asked Questions</AccordionStyles.Title>
 			<Accordion
-				element={AccordionStyles.Frame}
 				activeEventKey={activeEventKey}
 				onToggle={setActiveEventKey}
+				element={AccordionStyles.Frame}
 			>
 				{FaqData.map(({ header, body, id }) => {
 					return (
@@ -23,11 +23,13 @@ export default function AccordionContainer() {
 								{header}
 								<AccordionStyles.Svg toggle={activeEventKey === id} />
 							</Accordion.Toggle>
-							<AccordionStyles.Body toggle={activeEventKey === id}>
-								<Accordion.Collapse eventKey={id} element={AccordionStyles.Content}>
-									{body}
-								</Accordion.Collapse>
-							</AccordionStyles.Body>
+							<Accordion.Collapse
+								toggle={activeEventKey === id}
+								eventKey={id}
+								element={AccordionStyles.Body}
+							>
+								<AccordionStyles.Content>{body}</AccordionStyles.Content>
+							</Accordion.Collapse>
 						</AccordionStyles.Item>
 					);
 				})}
