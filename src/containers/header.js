@@ -2,9 +2,9 @@ import React from 'react';
 import { Header } from '../components/index';
 import * as ROUTES from '../constants/routes';
 
-export default function HeaderContainer({ children }) {
+export default function HeaderContainer({ bg, children }) {
 	return (
-		<Header>
+		<Header bg={bg}>
 			<Header.Container>
 				<Header.Frame>
 					<Header.Logo

@@ -5,7 +5,7 @@ import { Jumbotron, Footer, Header, Accordion } from '../containers';
 export default function Home() {
 	return (
 		<React.Fragment>
-			<Header>
+			<Header bg={true}>
 				<Hero>
 					<Hero.Card>
 						<Hero.Title>Unlimited movies, TV shows, and more.</Hero.Title>

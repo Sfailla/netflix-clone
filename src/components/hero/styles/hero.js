@@ -4,6 +4,7 @@ export const Container = styled.div`
 	padding: 0 45px 140px 45px;
 	border-bottom: 8px solid #222;
 	color: #fff;
+	position: relative;
 	z-index: 5;
 
 	@media (max-width: 550px) {
