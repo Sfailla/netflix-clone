@@ -5,6 +5,11 @@ export const Background = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: auto;
+`;
+
+export const Navigation = styled.div``;
+
+export const BackgroundImg = styled.div`
 	background: url(${({ src }) =>
 			src ? `../images/misc/${src}.jpg` : '../images/misc/netflix-home-bg.jpg'})
 		no-repeat center / cover;
@@ -29,12 +34,13 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
-	height: 100px;
-	padding-top: 20px;
 	width: 100%;
+	height: 100px;
 	max-width: 1920px;
 	margin: 0 auto;
+	padding-top: 20px;
 	background: transparent;
+	Position: relative;
 	z-index: 5;
 `;
 
