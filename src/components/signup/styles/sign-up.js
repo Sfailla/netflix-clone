@@ -16,17 +16,6 @@ export const Container = styled.div`
 	}
 `;
 
-export const Label = styled.label`
-	font-size: 16px;
-	color: #8c8c8c;
-
-	position: absolute;
-	top: 50%;
-	left: 10px;
-	transform: translateY(-50%);
-	transition: all .1s ease;
-`;
-
 export const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
@@ -39,11 +28,26 @@ export const Wrapper = styled.div`
 	}
 `;
 
-export const EmailWrapper = styled.div`
+export const Form = styled.form`
+	width: 100%;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+	}
+`;
+
+export const FormGroup = styled.div`
 	width: 100%;
 	max-width: 500px;
 	height: auto;
 	position: relative;
+
+	@media (max-width: 800px) {
+		margin: 0 auto;
+	}
 `;
 
 export const Input = styled.input`
@@ -77,6 +81,28 @@ export const Input = styled.input`
 			font-size: 11px;
 		}
 	}
+`;
+
+export const Label = styled.label`
+	font-size: 16px;
+	color: #8c8c8c;
+
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	transition: all .1s ease;
+`;
+
+export const Error = styled.p`
+	display: inline-block;
+	color: #e87c03;
+	margin-bottom: -6px;
+	padding: 6px 3px;
+	font-size: 13px;
+	position: absolute;
+	left: 0;
+	bottom: -22px;
 `;
 
 export const Button = styled.button`
