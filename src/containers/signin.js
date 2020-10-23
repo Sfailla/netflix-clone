@@ -1,5 +1,6 @@
 import React from 'react';
 import { SignIn } from '../components';
+import { FirebaseContext } from '../firebase';
 import useForm from '../hooks/useForm';
 import validateForm from '../utils/validation/validateForm';
 
@@ -13,14 +14,20 @@ export default function SignInContainer() {
 		INITIAL_STATE,
 		validateForm
 	);
+	const { register } = React.useContext(FirebaseContext);
+	let { email, password } = values;
 
-	const { email, password } = values;
+	if (register) {
+		email = register;
+	}
+
+	function authenticateUser() {}
 
 	return (
 		<SignIn>
 			<SignIn.Card>
 				<SignIn.Wrapper>
-					<SignIn.Title>Sign In</SignIn.Title>
+					<SignIn.Title>{!!register ? 'Sign Up' : 'Sign In'}</SignIn.Title>
 					<SignIn.Form onSubmit={handleSubmit}>
 						<SignIn.FormGroup>
 							<SignIn.LabelAnimationWrapper>
@@ -61,7 +68,7 @@ export default function SignInContainer() {
 							)}
 						</SignIn.FormGroup>
 						<SignIn.Button type="submit" disabled={isSubmitting}>
-							Sign In
+							{!!register ? 'Sign Up' : 'Sign In'}
 						</SignIn.Button>
 					</SignIn.Form>
 				</SignIn.Wrapper>
