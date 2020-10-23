@@ -2,20 +2,30 @@ import React from 'react';
 import { SignUp } from '../components';
 import useForm from '../hooks/useForm';
 import validateForm from '../utils/validation/validateForm';
+import { useHistory } from 'react-router-dom';
+import * as ROUTES from '../constants/routes';
+import { FirebaseContext } from '../firebase';
 
 const INITIAL_STATE = {
 	email: ''
 };
 
 export default function SignUpContainer() {
-	const { handleChange, handleSubmit, values, errors, isSubmitting } = useForm(
+	const { handleChange, handleSubmit, values, errors } = useForm(
 		INITIAL_STATE,
-		validateForm
+		validateForm,
+		authenticate
 	);
+	const history = useHistory();
+	const { register, setRegister } = React.useContext(FirebaseContext);
 
 	const { email } = values;
+	console.log(register);
 
-	console.log(email);
+	function authenticate() {
+		setRegister(email);
+		history.push(ROUTES.SIGN_IN);
+	}
 
 	return (
 		<SignUp>
@@ -35,7 +45,7 @@ export default function SignUpContainer() {
 						<SignUp.Label>Email address</SignUp.Label>
 						{errors.email ? <SignUp.Error>{errors.email}</SignUp.Error> : null}
 					</SignUp.FormGroup>
-					<SignUp.Button type="submit" disabled={isSubmitting}>
+					<SignUp.Button type="submit">
 						get started
 						<SignUp.Svg
 							viewBox="0 0 30 30"
