@@ -10,9 +10,9 @@ import {
 	ButtonLink
 } from './styles/header';
 
-export default function Header({ bg, children, ...restProps }) {
+export default function Header({ bg, nav, children, ...restProps }) {
 	return (
-		<Background bg={bg} {...restProps}>
+		<Background {...restProps}>
 			{bg ? (
 				<Header.BackgroundImg {...restProps}>{children}</Header.BackgroundImg>
 			) : (
@@ -44,7 +44,7 @@ Header.Logo = function HeaderLogo({ children, to, d, ...restProps }) {
 	);
 };
 
-Header.Button = function HeaderButton({ children, to, ...restProps }) {
+Header.Button = function HeaderButton({ to, children, ...restProps }) {
 	return (
 		<ButtonLink to={to}>
 			<Button {...restProps}>{children}</Button>
