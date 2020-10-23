@@ -15,7 +15,9 @@ export default function Home() {
 				</Hero>
 			</Header>
 			<Jumbotron />
-			<Accordion />
+			<Accordion>
+				<SignUp />
+			</Accordion>
 			<Footer />
 		</React.Fragment>
 	);
