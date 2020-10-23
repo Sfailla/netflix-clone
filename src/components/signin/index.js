@@ -14,7 +14,7 @@ import {
 	Button,
 	HelpLink,
 	SignUpLink
-} from './styles/auth-form';
+} from './styles/sign-in';
 
 export default function SignIn({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
