@@ -8,9 +8,10 @@ import Home from './pages/Home';
 import SignIn from './pages/Sign_In';
 
 function App() {
+	const [ register, setRegister ] = React.useState(null);
 	return (
 		<Router>
-			<FirebaseContext.Provider value={{ firebase }}>
+			<FirebaseContext.Provider value={{ register, setRegister, firebase }}>
 				<Switch>
 					<Route exact path={ROUTES.HOME}>
 						<Home />
