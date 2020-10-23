@@ -45,9 +45,6 @@ const Accordion = ({
 		[ eventKey, handleToggle ]
 	);
 
-	console.log(context);
-	console.log(eventKey);
-
 	return (
 		<AccordionContext.Provider value={context}>
 			<Component {...otherProps}>{children}</Component>
@@ -61,7 +58,6 @@ const useAccordionClick = (eventKey, onClick) => {
 		event.persist();
 		onToggle(eventKey === activeEventKey ? null : eventKey);
 		if (onClick) {
-			console.log('clicked');
 			onClick(event);
 		}
 	};
@@ -89,13 +85,7 @@ Accordion.Collapse = function Collapse({
 	children,
 	...otherProps
 }) {
-	const { activeEventKey } = useAccordionContext();
-
-	return activeEventKey === eventKey ? (
-		<Component {...otherProps}>{children}</Component>
-	) : (
-		<Component {...otherProps}>{children}</Component>
-	);
+	return <Component {...otherProps}>{children}</Component>;
 };
 
 export default Accordion;
