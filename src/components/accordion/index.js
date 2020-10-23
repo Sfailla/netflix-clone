@@ -52,7 +52,7 @@ const Accordion = ({
 	);
 };
 
-const useAccordionClick = (eventKey, onClick) => {
+const AccordionClick = (eventKey, onClick) => {
 	const { onToggle, activeEventKey } = useAccordionContext();
 	return event => {
 		event.persist();
@@ -70,7 +70,7 @@ Accordion.Toggle = function Toggle({
 	children,
 	...otherProps
 }) {
-	const accordionClick = useAccordionClick(eventKey, onClick);
+	const accordionClick = AccordionClick(eventKey, onClick);
 
 	return (
 		<Component onClick={accordionClick} {...otherProps}>
