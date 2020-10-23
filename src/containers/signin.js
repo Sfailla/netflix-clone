@@ -15,7 +15,6 @@ export default function SignInContainer() {
 	);
 
 	const { email, password } = values;
-	console.log(errors);
 
 	return (
 		<SignIn>
