@@ -3,6 +3,9 @@ import React from 'react';
 import {
 	Container,
 	Title,
+	Message,
+	TextLink,
+	Span,
 	Card,
 	Wrapper,
 	Form,
@@ -22,6 +25,31 @@ export default function SignIn({ children, ...restProps }) {
 
 SignIn.Title = function SignInTitle({ children, ...restProps }) {
 	return <Title {...restProps}>{children}</Title>;
+};
+
+SignIn.Message = function SignInMessage({
+	fontSize,
+	color,
+	children,
+	...restProps
+}) {
+	return (
+		<Message fontSize={fontSize} color={color} {...restProps}>
+			{children}
+		</Message>
+	);
+};
+
+SignIn.TextLink = function SignInTextLink({ to, children, ...restProps }) {
+	return (
+		<TextLink to={to} {...restProps}>
+			{children}
+		</TextLink>
+	);
+};
+
+SignIn.Span = function SignInSpan({ children }) {
+	return <Span>{children}</Span>;
 };
 
 SignIn.Card = function SignInCard({ children, ...restProps }) {

@@ -19,7 +19,6 @@ export const Container = styled.div`
 export const Card = styled.div`
 	width: 100%;
 	max-width: 450px;
-	max-height: 671px;
 	background-color: rgba(0, 0, 0, .75);
 	border-radius: 4px;
 	display: flex;
@@ -39,6 +38,27 @@ export const Title = styled.h1`
 	margin-bottom: 28px;
 `;
 
+export const Message = styled.p`
+	display: inline-block;
+	color: ${({ color }) => (color ? color : 'white')};
+	font-size: ${({ fontSize }) => (fontSize ? fontSize : '17')}px;
+	line-height: 1.2;
+	padding-bottom: 20px;
+`;
+
+export const TextLink = styled(Link)`
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	padding-left: 10px;
+`;
+
+export const Span = styled.span`
+	display: inline-block;
+	font-size: inherit;
+	color: #0071eb;
+`;
+
 export const Wrapper = styled.div`
 	min-width: 380px;
 	min-height: 660px;
@@ -54,6 +74,7 @@ export const Wrapper = styled.div`
 export const Form = styled.form`
 	width: inherit;
 	height: inherit;
+	padding-bottom: 30px;
 `;
 
 export const FormGroup = styled.div`
