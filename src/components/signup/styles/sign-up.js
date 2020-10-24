@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
 	width: 100%;
@@ -53,7 +52,7 @@ export const FormGroup = styled.div`
 
 export const Input = styled.input`
 	width: 100%;
-	padding: 10px;
+	padding: 20px 10px 10px;
 	height: 70px;
 	&:focus {
 		border-color: #0071eb;

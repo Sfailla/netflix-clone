@@ -1,10 +1,10 @@
 import React from 'react';
-import { SignUp } from '../components';
 import useForm from '../hooks/useForm';
 import validateForm from '../utils/validation/validateForm';
+import { SignUp } from '../components';
 import { useHistory } from 'react-router-dom';
-import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../firebase';
+import * as ROUTES from '../constants/routes';
 
 const INITIAL_STATE = {
 	email: ''
@@ -14,15 +14,13 @@ export default function SignUpContainer() {
 	const { handleChange, handleSubmit, values, errors } = useForm(
 		INITIAL_STATE,
 		validateForm,
-		authenticate
+		RedirectToLogin
 	);
 	const history = useHistory();
-	const { register, setRegister } = React.useContext(FirebaseContext);
-
+	const { setRegister } = React.useContext(FirebaseContext);
 	const { email } = values;
-	console.log(register);
 
-	function authenticate() {
+	function RedirectToLogin() {
 		setRegister(email);
 		history.push(ROUTES.SIGN_IN);
 	}
