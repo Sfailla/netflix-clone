@@ -2,6 +2,9 @@ import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import firebaseConfig from './config';
+import randomAvatar from '../utils/randomAvatar';
+
+randomAvatar();
 
 // Initialize Firebase
 class Firebase {
@@ -11,11 +14,12 @@ class Firebase {
 		this.db = app.firestore();
 	}
 
-	async register(name, email, password) {
+	async register(email, name, password) {
 		const newUser = await this.auth.createUserWithEmailAndPassword(email, password);
 
 		return await newUser.user.updateProfile({
-			displayName: name
+			displayName: name,
+			photoURL: randomAvatar()
 		});
 	}
 
