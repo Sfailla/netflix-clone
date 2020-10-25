@@ -6,18 +6,14 @@ import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../firebase';
 import * as ROUTES from '../constants/routes';
 
-const INITIAL_STATE = {
-	email: ''
-};
-
 export default function SignUpContainer() {
 	const { handleChange, handleSubmit, values, errors } = useForm(
-		INITIAL_STATE,
+		{ email: '' },
 		validateForm,
 		RedirectToLogin
 	);
-	const history = useHistory();
 	const { setRegister } = React.useContext(FirebaseContext);
+	const history = useHistory();
 	const { email } = values;
 
 	function RedirectToLogin() {
