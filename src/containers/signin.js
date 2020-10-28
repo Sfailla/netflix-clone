@@ -18,7 +18,7 @@ export default function SignInContainer() {
 	let { email, name, password } = values;
 
 	function authenticateUser() {
-		!!register
+		register
 			? firebase
 					.register(email, name, password)
 					.then(() => history.push(ROUTES.BROWSE))
@@ -34,7 +34,7 @@ export default function SignInContainer() {
 			<SignIn.Card>
 				<SignIn.Wrapper>
 					<SignIn.Title>{!!register ? 'Sign Up' : 'Sign In'}</SignIn.Title>
-					{!!register && (
+					{register && (
 						<SignIn.Message color={'#8c8c8c'}>
 							Almost there! please provide a username and password to finish the
 							registration process
@@ -60,7 +60,7 @@ export default function SignInContainer() {
 								</SignIn.Error>
 							)}
 						</SignIn.FormGroup>
-						{!!register && (
+						{register && (
 							<SignIn.FormGroup>
 								<SignIn.LabelAnimationWrapper>
 									<SignIn.Input
@@ -100,7 +100,7 @@ export default function SignInContainer() {
 							{firebaseError && <SignIn.Error>{firebaseError}</SignIn.Error>}
 						</SignIn.FormGroup>
 						<SignIn.Button type="submit" disabled={isSubmitting}>
-							{!!register ? 'Sign Up' : 'Sign In'}
+							{register ? 'Sign Up' : 'Sign In'}
 						</SignIn.Button>
 					</SignIn.Form>
 					<SignIn.Message fontSize={16} color={'#737373'}>
