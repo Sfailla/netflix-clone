@@ -17,7 +17,6 @@ export default function SignInContainer() {
 	const [ firebaseError, setFirebaseError ] = React.useState(null);
 	let { email, name, password } = values;
 
-	console.log(values);
 	function authenticateUser() {
 		!!register
 			? firebase
