@@ -102,7 +102,7 @@ export const ButtonLink = styled(Link)`
   }
 `;
 
-export const Button = styled.button`
+export const SignInButton = styled.button`
 	width: 100%;
 	height: 100%;
 	white-space: nowrap;

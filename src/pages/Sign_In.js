@@ -6,7 +6,7 @@ export default function SignInPage() {
 	const { width } = useWindowSize();
 	return (
 		<React.Fragment>
-			<Header bg={width > 740 ? true : false}>
+			<Header backgroundImage={width > 740 ? true : false}>
 				<SignIn />
 			</Header>
 			<Footer />

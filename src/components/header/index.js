@@ -5,7 +5,7 @@ import {
 	Container,
 	Frame,
 	Logo,
-	Button,
+	SignInButton,
 	LogoLink,
 	ButtonLink
 } from './styles/header';
@@ -44,10 +44,10 @@ Header.Logo = function HeaderLogo({ children, to, d, ...restProps }) {
 	);
 };
 
-Header.Button = function HeaderButton({ to, children, ...restProps }) {
+Header.SignInButton = function HeaderSignInButton({ to, children, ...restProps }) {
 	return (
 		<ButtonLink to={to}>
-			<Button {...restProps}>{children}</Button>
+			<SignInButton {...restProps}>{children}</SignInButton>
 		</ButtonLink>
 	);
 };

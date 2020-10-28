@@ -5,7 +5,7 @@ import { Jumbotron, Footer, Header, SignUp, Accordion } from '../containers';
 export default function Home() {
 	return (
 		<React.Fragment>
-			<Header bg={true} nav={true}>
+			<Header backgroundImage={true} authButton={true}>
 				<Hero>
 					<Hero.Card>
 						<Hero.Title>Unlimited movies, TV shows, and more.</Hero.Title>
