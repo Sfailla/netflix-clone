@@ -2,12 +2,16 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
 	width: 100%;
+	height: 100vh;
 	max-width: 80%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 `;
+
+export const Wrapper = styled.div`margin-bottom: 250px;`;
 
 export const Title = styled.h1`
 	display: block;
@@ -31,6 +35,8 @@ export const Username = styled.h2`
 
 export const List = styled.ul`
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: row;
 	list-style: none;
 `;

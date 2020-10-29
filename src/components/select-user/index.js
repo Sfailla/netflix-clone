@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	Container,
 	Title,
+	Wrapper,
 	List,
 	ListItem,
 	Avatar,
@@ -14,6 +15,10 @@ export default function SelectUser({ children, ...restProps }) {
 
 SelectUser.Title = function SelectUser({ children, ...restProps }) {
 	return <Title {...restProps}>{children}</Title>;
+};
+
+SelectUser.Wrapper = function SelectUserWrapper({ children, ...restProps }) {
+	return <Wrapper {...restProps}>{children}</Wrapper>;
 };
 
 SelectUser.List = function SelectUserList({ children, ...restProps }) {
