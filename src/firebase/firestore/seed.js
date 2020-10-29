@@ -247,7 +247,7 @@ export default function seedDatabase(firebase) {
 		slug: 'school-of-rock'
 	});
 
-	/* Films
+	/* Movies
     ============================================ */
 	// Drama
 	firebase.firestore().collection('movies').add({

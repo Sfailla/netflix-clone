@@ -18,7 +18,7 @@ class Firebase {
 		const newUser = await this.auth.createUserWithEmailAndPassword(email, password);
 
 		return await newUser.user.updateProfile({
-			displayName: name,
+			displayName: name.toLowerCase(),
 			photoURL: randomAvatar()
 		});
 	}
