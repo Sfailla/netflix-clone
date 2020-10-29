@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function BrowseContainer({ contentList }) {
-	return <p>Browse Selection...</p>;
+	return <div>browse selection page</div>;
 }
