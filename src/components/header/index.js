@@ -10,10 +10,15 @@ import {
 	ButtonLink
 } from './styles/header';
 
-export default function Header({ bg, nav, children, ...restProps }) {
+export default function Header({
+	backgroundImage,
+	authButton,
+	children,
+	...restProps
+}) {
 	return (
 		<Background {...restProps}>
-			{bg ? (
+			{backgroundImage ? (
 				<Header.BackgroundImg {...restProps}>{children}</Header.BackgroundImg>
 			) : (
 				children
