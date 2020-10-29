@@ -15,6 +15,7 @@ import useAuth from './hooks/useAuth';
 function App() {
 	const { isAuthPending, authUser } = useAuth();
 	const [ register, setRegister ] = React.useState(null);
+	const [ profile, setProfile ] = React.useState({});
 
 	return (
 		<Router>
@@ -22,7 +23,15 @@ function App() {
 				<Loader />
 			) : (
 				<FirebaseContext.Provider
-					value={{ register, setRegister, authUser, isAuthPending, firebase }}
+					value={{
+						register,
+						setRegister,
+						profile,
+						setProfile,
+						authUser,
+						isAuthPending,
+						firebase
+					}}
 				>
 					<Switch>
 						<Route
