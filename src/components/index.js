@@ -5,3 +5,5 @@ export { default as Footer } from './footer';
 export { default as Header } from './header';
 export { default as Hero } from './hero';
 export { default as SignIn } from './signin';
+export { default as SelectUser } from './select-user';
+export { default as Loader } from './loader';
