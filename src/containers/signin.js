@@ -15,17 +15,17 @@ export default function SignInContainer() {
 	);
 	const history = useHistory();
 	const [ firebaseError, setFirebaseError ] = React.useState(null);
-	let { email, name, password } = values;
+	const { email, name, password } = values;
 
 	function authenticateUser() {
 		register
 			? firebase
 					.register(email, name, password)
-					.then(() => history.push(ROUTES.BROWSE))
+					.then(() => history.push(ROUTES.PROFILE_SELECTION))
 					.catch(error => setFirebaseError(error.message))
 			: firebase
 					.login(email, password)
-					.then(() => history.push(ROUTES.BROWSE))
+					.then(() => history.push(ROUTES.PROFILE_SELECTION))
 					.catch(error => setFirebaseError(error.message));
 	}
 
