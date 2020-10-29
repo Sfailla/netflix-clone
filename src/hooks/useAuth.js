@@ -3,17 +3,17 @@ import firebase from '../firebase';
 
 export default function useAuth() {
 	const [ authUser, setAuthUser ] = React.useState(null);
-	const [ isLoading, setIsLoading ] = React.useState(false);
+	const [ isAuthPending, setIsAuthPending ] = React.useState(false);
 
 	React.useEffect(() => {
-		setIsLoading(true);
+		setIsAuthPending(true);
 		const unSubscribe = firebase.auth.onAuthStateChanged(user => {
 			if (user) {
 				setAuthUser(user);
-				setIsLoading(false);
+				setIsAuthPending(false);
 			} else {
 				setAuthUser(null);
-				setIsLoading(false);
+				setIsAuthPending(false);
 			}
 
 			return () => unSubscribe();
@@ -22,6 +22,6 @@ export default function useAuth() {
 
 	return {
 		authUser,
-		isLoading
+		isAuthPending
 	};
 }
