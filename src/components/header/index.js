@@ -13,13 +13,16 @@ import {
 export default function Header({
 	backgroundImage,
 	authButton,
+	src,
 	children,
 	...restProps
 }) {
 	return (
 		<Background {...restProps}>
 			{backgroundImage ? (
-				<Header.BackgroundImg {...restProps}>{children}</Header.BackgroundImg>
+				<Header.BackgroundImg src={src} {...restProps}>
+					{children}
+				</Header.BackgroundImg>
 			) : (
 				children
 			)}
@@ -27,8 +30,16 @@ export default function Header({
 	);
 }
 
-Header.BackgroundImg = function HeaderBackgroundImg({ children, ...restProps }) {
-	return <BackgroundImg {...restProps}>{children}</BackgroundImg>;
+Header.BackgroundImg = function HeaderBackgroundImg({
+	src,
+	children,
+	...restProps
+}) {
+	return (
+		<BackgroundImg src={src} {...restProps}>
+			{children}
+		</BackgroundImg>
+	);
 };
 
 Header.Container = function HeaderContainer({ children, ...restProps }) {

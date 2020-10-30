@@ -5,6 +5,7 @@ import { FirebaseContext } from '../firebase';
 
 export default function HeaderContainer({
 	backgroundImage,
+	src,
 	authButton,
 	profile,
 	children
@@ -12,7 +13,7 @@ export default function HeaderContainer({
 	const { setRegister } = React.useContext(FirebaseContext);
 	const handleClick = () => setRegister(null);
 	return (
-		<Header backgroundImage={backgroundImage}>
+		<Header backgroundImage={backgroundImage} src={src}>
 			<Header.Container>
 				<Header.Frame>
 					<Header.Logo
