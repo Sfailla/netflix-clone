@@ -9,7 +9,7 @@ import SignIn from './pages/Sign_In';
 import Browse from './pages/Browse';
 import SelectProfile from './pages/SelectProfile';
 
-import { PrivateRoute } from './utils/routes';
+import { PrivateRoute, PublicRoute } from './utils/routes';
 import useAuth from './hooks/useAuth';
 
 function App() {
@@ -34,24 +34,25 @@ function App() {
 					}}
 				>
 					<Switch>
-						<Route
+						<PublicRoute
 							exact
 							path={ROUTES.HOME}
-							render={() =>
-								authUser ? <Redirect to={ROUTES.PROFILE_SELECTION} /> : <Home />}
+							component={Home}
+							restricted={!!authUser}
+							redirect={ROUTES.PROFILE_SELECTION}
 						/>
-						<Route path={ROUTES.SIGN_IN} component={SignIn} />
+						<PublicRoute path={ROUTES.SIGN_IN} component={SignIn} />
 						<PrivateRoute
-							isLoading={isAuthPending}
 							user={authUser}
 							path={ROUTES.PROFILE_SELECTION}
 							component={SelectProfile}
+							redirect={ROUTES.HOME}
 						/>
 						<PrivateRoute
-							isLoading={isAuthPending}
 							user={authUser}
 							path={ROUTES.BROWSE}
 							component={Browse}
+							redirect={ROUTES.HOME}
 						/>
 					</Switch>
 				</FirebaseContext.Provider>
