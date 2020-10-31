@@ -1,4 +1,6 @@
 import React from 'react';
+import Feature from '../components/feature';
+import { Header } from '../containers';
 import BrowseContainer from '../containers/browse';
 import useContent from '../hooks/useContent';
 import selectionFilter from '../utils/filters/selectionFilter';
@@ -7,5 +9,22 @@ export default function BrowsePage() {
 	const { movies, series } = useContent();
 	const { contentList } = selectionFilter({ series, movies });
 
-	return <BrowseContainer contentList={contentList} />;
+	return (
+		<React.Fragment>
+			<Header backgroundImage={true} src={'joker1'} profile={true}>
+				<Feature>
+					<Feature.Wrapper>
+						<Feature.Title>Watch Joker Now</Feature.Title>
+						<Feature.Body>
+							Forever alone in a crowd, failed comedian Arthur Flexk seeks connection
+							as he walks the streets of Gotham City. Arthur wears two masks -- the
+							one he paints for his day job as a clown, and the guise he projects in
+							a futile attempt to feel like he's a part of the world around him.
+						</Feature.Body>
+					</Feature.Wrapper>
+				</Feature>
+			</Header>
+			<BrowseContainer contentList={contentList} />
+		</React.Fragment>
+	);
 }
