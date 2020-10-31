@@ -6,7 +6,7 @@ import * as ROUTES from '../constants/routes';
 
 export default function SelectProfile() {
 	const history = useHistory();
-	const { authUser, setProfile } = React.useContext(FirebaseContext);
+	const { authUser } = React.useContext(FirebaseContext);
 
 	return (
 		<React.Fragment>
@@ -14,16 +14,11 @@ export default function SelectProfile() {
 				<SelectUser.Wrapper>
 					<SelectUser.Title>Whose watching?</SelectUser.Title>
 					<SelectUser.List>
-						<SelectUser.ListItem
-							onClick={() => {
-								setProfile({
-									displayName: authUser.displayName,
-									avatar: authUser.photoURL
-								});
-								history.push(ROUTES.BROWSE);
-							}}
-						>
-							<SelectUser.Avatar src={`/images/user/${authUser.photoURL}`} />
+						<SelectUser.ListItem onClick={() => history.push(ROUTES.BROWSE)}>
+							<SelectUser.Avatar
+								src={`/images/user/${authUser.photoURL}`}
+								alt="avatar image"
+							/>
 							<SelectUser.Username>{authUser.displayName}</SelectUser.Username>
 						</SelectUser.ListItem>
 					</SelectUser.List>
