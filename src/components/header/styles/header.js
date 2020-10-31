@@ -112,3 +112,48 @@ export const SignInButton = styled.button`
 	color: white;
 	cursor: pointer;
 `;
+
+export const Profile = styled.div`
+	display: inline;
+	height: auto;
+	padding-top: 8px;
+`;
+
+export const Wrapper = styled.div`
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+`;
+
+export const Avatar = styled.img`
+	width: ${({ size }) => size}px;
+	height: ${({ size }) => size}px;
+	margin-right: 10px;
+`;
+
+export const Title = styled.h3``;
+
+export const Target = styled.div`
+	width: 40px;
+	height: 20px;
+	background: lightpink;
+`;
+
+export const Select = styled.select`
+	width: 25px;
+	background: transparent;
+	appearance: none;
+	outline: none;
+	border: none;
+`;
+
+export const Svg = styled.svg`
+	width: 23px;
+	height: 19px;
+	fill: white;
+	position: absolute;
+	left: 48px;
+`;
+
+export const Option = styled.option``;

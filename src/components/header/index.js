@@ -7,22 +7,30 @@ import {
 	Logo,
 	SignInButton,
 	LogoLink,
-	ButtonLink
+	ButtonLink,
+	Wrapper,
+	Target,
+	Profile,
+	Title,
+	Avatar,
+	Select,
+	Svg,
+	Option
 } from './styles/header';
+
+// MAIN HEADER STYLING
 
 export default function Header({
 	backgroundImage,
 	authButton,
-	src,
+
 	children,
 	...restProps
 }) {
 	return (
 		<Background {...restProps}>
 			{backgroundImage ? (
-				<Header.BackgroundImg src={src} {...restProps}>
-					{children}
-				</Header.BackgroundImg>
+				<Header.BackgroundImg {...restProps}>{children}</Header.BackgroundImg>
 			) : (
 				children
 			)}
@@ -60,10 +68,50 @@ Header.Logo = function HeaderLogo({ children, to, d, ...restProps }) {
 	);
 };
 
+// SIGNIN BUTTON STYLING
+
 Header.SignInButton = function HeaderSignInButton({ to, children, ...restProps }) {
 	return (
 		<ButtonLink to={to}>
 			<SignInButton {...restProps}>{children}</SignInButton>
 		</ButtonLink>
+	);
+};
+
+// PROFILE NAVIGATION STYLING
+
+Header.Profile = function HeaderProfile({ children, ...restProps }) {
+	return <Profile {...restProps}>{children}</Profile>;
+};
+
+Header.Wrapper = function HeaderWrapper({ children, ...restProps }) {
+	return <Wrapper {...restProps}>{children}</Wrapper>;
+};
+
+Header.Avatar = function HeaderAvatar({ children, ...restProps }) {
+	return <Avatar {...restProps}>{children}</Avatar>;
+};
+
+Header.Title = function HeaderTitle({ children, ...restProps }) {
+	return <Title {...restProps}>{children}</Title>;
+};
+
+Header.Target = function HeaderTarget({ children, ...restProps }) {
+	return <Target {...restProps}>{children}</Target>;
+};
+
+Header.Select = function HeaderSelect({ children, ...restProps }) {
+	return <Select {...restProps}>{children}</Select>;
+};
+
+Header.Option = function HeaderOption({ children, ...restProps }) {
+	return <Option {...restProps}>{children}</Option>;
+};
+
+Header.Svg = function HeaderSvg({ d, children, ...restProps }) {
+	return (
+		<Svg {...restProps}>
+			<path d={d} />
+		</Svg>
 	);
 };

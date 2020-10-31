@@ -10,7 +10,7 @@ export default function HeaderContainer({
 	profile,
 	children
 }) {
-	const { setRegister } = React.useContext(FirebaseContext);
+	const { setRegister, authUser } = React.useContext(FirebaseContext);
 	const handleClick = () => setRegister(null);
 	return (
 		<Header backgroundImage={backgroundImage} src={src}>
@@ -26,7 +26,23 @@ export default function HeaderContainer({
 							Sign In
 						</Header.SignInButton>
 					) : null}
-					{profile ? <p>profile</p> : null}
+					{profile && authUser ? (
+						<Header.Profile>
+							<Header.Wrapper>
+								<Header.Avatar size={40} src={`/images/user/${authUser.photoURL}`} />
+								<Header.Target>
+									<Header.Select>
+										<Header.Option value="" />
+										<Header.Option>Sign out</Header.Option>
+									</Header.Select>
+									<Header.Svg
+										viewBox="0 0 24 24"
+										d="M7.406 8.578l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z"
+									/>
+								</Header.Target>
+							</Header.Wrapper>
+						</Header.Profile>
+					) : null}
 				</Header.Frame>
 			</Header.Container>
 			{children}
