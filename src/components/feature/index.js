@@ -1,9 +1,13 @@
 import React from 'react';
-import { Container, Title, Subtitle, Body, Button } from './styles/featureStyles';
+import { Container, Title, Wrapper, Body, Button } from './styles/featureStyles';
 
 export default function Feature({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
 }
+
+Feature.Wrapper = function FeatureWrapper({ children, ...restProps }) {
+	return <Wrapper {...restProps}>{children}</Wrapper>;
+};
 
 Feature.Title = function FeatureTitle({ children, ...restProps }) {
 	return <Title {...restProps}>{children}</Title>;
