@@ -15,7 +15,6 @@ import useAuth from './hooks/useAuth';
 function App() {
 	const { isAuthPending, authUser } = useAuth();
 	const [ register, setRegister ] = React.useState(null);
-	const [ profile, setProfile ] = React.useState({});
 
 	return (
 		<Router>
@@ -26,14 +25,13 @@ function App() {
 					value={{
 						register,
 						setRegister,
-						profile,
-						setProfile,
 						authUser,
 						isAuthPending,
 						firebase
 					}}
 				>
 					<Switch>
+						<PublicRoute path={ROUTES.SIGN_IN} component={SignIn} />
 						<PublicRoute
 							exact
 							path={ROUTES.HOME}
@@ -41,7 +39,6 @@ function App() {
 							restricted={!!authUser}
 							redirect={ROUTES.PROFILE_SELECTION}
 						/>
-						<PublicRoute path={ROUTES.SIGN_IN} component={SignIn} />
 						<PrivateRoute
 							user={authUser}
 							path={ROUTES.PROFILE_SELECTION}
