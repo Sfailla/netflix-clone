@@ -1,7 +1,6 @@
 import React from 'react';
-import Feature from '../components/feature';
-import { Header } from '../containers';
-import BrowseContainer from '../containers/browse';
+import { Feature } from '../components';
+import { Header, Browse } from '../containers';
 import useContent from '../hooks/useContent';
 import selectionFilter from '../utils/filters/selectionFilter';
 
@@ -24,7 +23,7 @@ export default function BrowsePage() {
 					</Feature.Wrapper>
 				</Feature>
 			</Header>
-			<BrowseContainer contentList={contentList} />
+			<Browse contentList={contentList} />
 		</React.Fragment>
 	);
 }
