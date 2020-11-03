@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/index';
+import { Header, Dropdown } from '../components/index';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../firebase';
 
@@ -28,19 +28,17 @@ export default function HeaderContainer({
 					) : null}
 					{profile && authUser ? (
 						<Header.Profile>
-							<Header.Wrapper>
+							<Header.Target>
 								<Header.Avatar size={40} src={`/images/user/${authUser.photoURL}`} />
-								<Header.Target>
-									<Header.Select>
-										<Header.Option value="" />
-										<Header.Option>Sign out</Header.Option>
-									</Header.Select>
-									<Header.Svg
-										viewBox="0 0 24 24"
-										d="M7.406 8.578l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z"
-									/>
-								</Header.Target>
-							</Header.Wrapper>
+								<Dropdown>
+									<Dropdown.Target>
+										<Dropdown.Label>MENU</Dropdown.Label>
+									</Dropdown.Target>
+									<Dropdown.List>
+										<Dropdown.ListItem>item 1</Dropdown.ListItem>
+									</Dropdown.List>
+								</Dropdown>
+							</Header.Target>
 						</Header.Profile>
 					) : null}
 				</Header.Frame>
