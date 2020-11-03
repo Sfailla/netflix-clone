@@ -8,14 +8,10 @@ import {
 	SignInButton,
 	LogoLink,
 	ButtonLink,
-	Wrapper,
 	Target,
 	Profile,
-	Title,
 	Avatar,
-	Select,
-	Svg,
-	Option
+	Svg
 } from './styles/header';
 
 // MAIN HEADER STYLING
@@ -84,28 +80,12 @@ Header.Profile = function HeaderProfile({ children, ...restProps }) {
 	return <Profile {...restProps}>{children}</Profile>;
 };
 
-Header.Wrapper = function HeaderWrapper({ children, ...restProps }) {
-	return <Wrapper {...restProps}>{children}</Wrapper>;
-};
-
 Header.Avatar = function HeaderAvatar({ children, ...restProps }) {
 	return <Avatar {...restProps}>{children}</Avatar>;
 };
 
-Header.Title = function HeaderTitle({ children, ...restProps }) {
-	return <Title {...restProps}>{children}</Title>;
-};
-
 Header.Target = function HeaderTarget({ children, ...restProps }) {
 	return <Target {...restProps}>{children}</Target>;
-};
-
-Header.Select = function HeaderSelect({ children, ...restProps }) {
-	return <Select {...restProps}>{children}</Select>;
-};
-
-Header.Option = function HeaderOption({ children, ...restProps }) {
-	return <Option {...restProps}>{children}</Option>;
 };
 
 Header.Svg = function HeaderSvg({ d, children, ...restProps }) {
