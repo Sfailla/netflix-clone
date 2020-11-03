@@ -5,13 +5,6 @@ export const Background = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: auto;
-`;
-
-export const BackgroundImg = styled.div`
-	background: url(${({ src }) =>
-			src ? `../images/misc/${src}.jpg` : '../images/misc/netflix-home-bg.jpg'})
-		no-repeat center / cover;
-	position: relative;
 
 	&::after {
 		content: '';
@@ -31,19 +24,25 @@ export const BackgroundImg = styled.div`
 	}
 `;
 
+export const BackgroundImg = styled.div`
+	background: url(${({ src }) =>
+			src ? `../images/misc/${src}.jpg` : '../images/misc/netflix-home-bg.jpg'})
+		no-repeat center / cover;
+`;
+
 export const Container = styled.div`
 	width: 100%;
-	height: 100px;
+	height: 160px;
 	max-width: 1920px;
 	margin: 0 auto;
 	padding-top: 20px;
 	background: transparent;
-	Position: relative;
+	position: relative;
 	z-index: 5;
 `;
 
 export const Frame = styled.div`
-	margin: 0 3.5rem;
+	margin: 0 56px;
 	height: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -62,13 +61,13 @@ export const Logo = styled.svg`
 	}
 
 	@media (max-width: 949px) {
-		width: 108px;
+		width: 112px;
 		height: 40px;
 	}
 `;
 
 export const LogoLink = styled(Link)`
-	display: block;
+	display: inline-block;
 	width: 167px;
 	height: 53px;
 
@@ -78,7 +77,7 @@ export const LogoLink = styled(Link)`
 	}
 
 	@media (max-width: 949px) {
-		width: 108px;
+		width: 112px;
 		height: 40px;
 	}
 `;
@@ -119,11 +118,10 @@ export const Profile = styled.div`
 	padding-top: 8px;
 `;
 
-export const Target = styled.div`
+export const Wrapper = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	position: relative;
 `;
 
 export const Avatar = styled.img`
