@@ -7,10 +7,11 @@ import selectionFilter from '../utils/filters/selectionFilter';
 export default function BrowsePage() {
 	const { movies, series } = useContent();
 	const { contentList } = selectionFilter({ series, movies });
+	const src = 'joker1';
 
 	return (
 		<React.Fragment>
-			<Header backgroundImage={true} src={'joker1'} profile={true}>
+			<Header backgroundImage={true} src={src} profile={true}>
 				<Feature>
 					<Feature.Wrapper>
 						<Feature.Title>Watch Joker Now</Feature.Title>
