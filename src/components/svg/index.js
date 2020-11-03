@@ -3,8 +3,8 @@ import { Svg, Path } from './styles/svg-styles';
 
 export default function Icon({ viewBox, d, children, ...restProps }) {
 	return (
-		<Svg {...restProps}>
-			<Path viewBox={viewBox} d={d} {...restProps} />
+		<Svg viewBox={viewBox} {...restProps}>
+			<Path d={d} {...restProps} />
 		</Svg>
 	);
 }
