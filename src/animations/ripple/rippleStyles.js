@@ -1,7 +1,5 @@
 import styled from 'styled-components/macro';
 
-export const RippleSpan = styled.span``;
-
 export const RippleContainer = styled.div`
 	position: absolute;
 	top: 0;

@@ -1,26 +1,8 @@
 import React from 'react';
 import { RippleContainer } from './rippleStyles';
+import useDebouncedRippleCleanUp from './useDebouncedRippleCleanup';
 
-const useDebouncedRippleCleanUp = (rippleCount, duration, cleanupFn) => {
-	React.useLayoutEffect(
-		() => {
-			let bounce = null;
-			if (rippleCount > 0) {
-				clearTimeout(bounce);
-
-				bounce = setTimeout(() => {
-					cleanupFn();
-					clearTimeout(bounce);
-				}, duration * 4);
-			}
-
-			return () => clearTimeout(bounce);
-		},
-		[ rippleCount, duration, cleanupFn ]
-	);
-};
-
-const Ripple = ({ duration = 850, color = '#6F6F6F' }) => {
+const RippleAnimation = ({ duration = 850, color = '#6F6F6F' }) => {
 	const [ rippleArray, setRippleArray ] = React.useState([]);
 
 	useDebouncedRippleCleanUp(rippleArray.length, duration, () => {
@@ -64,4 +46,4 @@ const Ripple = ({ duration = 850, color = '#6F6F6F' }) => {
 	);
 };
 
-export default Ripple;
+export default RippleAnimation;
