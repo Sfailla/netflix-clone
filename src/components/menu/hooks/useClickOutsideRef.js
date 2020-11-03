@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function useClickOutsideRef(ref, closeMenu) {
+export default function useClickOutsideRef(ref, closeFn) {
 	React.useEffect(
 		() => {
 			const listener = event => {
@@ -9,7 +9,7 @@ export default function useClickOutsideRef(ref, closeMenu) {
 					return;
 				}
 
-				closeMenu(event);
+				closeFn(event);
 			};
 
 			document.addEventListener('mousedown', listener);
@@ -20,6 +20,6 @@ export default function useClickOutsideRef(ref, closeMenu) {
 				document.removeEventListener('touchstart', listener);
 			};
 		},
-		[ ref, closeMenu ]
+		[ ref, closeFn ]
 	);
 }

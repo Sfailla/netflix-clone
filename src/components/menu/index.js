@@ -9,7 +9,7 @@ import {
 } from './styles/menuStyles';
 
 import RippleAnimation from '../../animations/ripple/ripple';
-import useClickOutsideRef from '../../hooks/useClickOutsideRef';
+import useClickOutsideRef from './hooks/useClickOutsideRef';
 
 const MenuContext = React.createContext(null);
 
