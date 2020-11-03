@@ -9,3 +9,4 @@ export { default as SelectUser } from './select-user';
 export { default as Loader } from './loader';
 export { default as Feature } from './feature';
 export { default as Dropdown } from './menu';
+export { default as Icon } from './svg';
