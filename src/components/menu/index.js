@@ -8,7 +8,7 @@ import {
 	ListItem
 } from './styles/menuStyles';
 
-import Ripple from '../../animations/ripple/ripple';
+import RippleAnimation from '../../animations/ripple/ripple';
 import useClickOutsideRef from '../../hooks/useClickOutsideRef';
 
 const MenuContext = React.createContext(null);
@@ -18,13 +18,7 @@ export default function Dropdown({ children, ...restProps }) {
 	const menuRef = React.useRef();
 
 	const handleClick = () => setToggleMenu(prevState => !prevState);
-
-	const handleCloseMenu = React.useCallback(
-		() => {
-			setToggleMenu(false);
-		},
-		[ setToggleMenu ]
-	);
+	const handleCloseMenu = () => setToggleMenu(false);
 
 	useClickOutsideRef(menuRef, handleCloseMenu);
 
@@ -57,7 +51,7 @@ Dropdown.Wrapper = function DropdownWrapper({ children, ...restProps }) {
 Dropdown.List = function DropdownList({ children, ...restProps }) {
 	const { toggleMenu } = React.useContext(MenuContext);
 	return (
-		<List display={toggleMenu ? 'block' : 'none'} {...restProps}>
+		<List height={toggleMenu ? '80' : '0'} {...restProps}>
 			{children}
 		</List>
 	);
@@ -67,7 +61,7 @@ Dropdown.ListItem = function DropdownListItem({ children, ...restProps }) {
 	return (
 		<ListItem {...restProps}>
 			{children}
-			<Ripple />
+			<RippleAnimation />
 		</ListItem>
 	);
 };
