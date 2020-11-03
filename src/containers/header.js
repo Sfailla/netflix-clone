@@ -10,7 +10,7 @@ export default function HeaderContainer({
 	profile,
 	children
 }) {
-	const { setRegister, authUser } = React.useContext(FirebaseContext);
+	const { setRegister, authUser, firebase } = React.useContext(FirebaseContext);
 	const handleClick = () => setRegister(null);
 	return (
 		<Header backgroundImage={backgroundImage} src={src}>
@@ -40,7 +40,9 @@ export default function HeaderContainer({
 									</Dropdown.Target>
 									<Dropdown.List>
 										<Dropdown.ListItem>Profile</Dropdown.ListItem>
-										<Dropdown.ListItem>Sign out</Dropdown.ListItem>
+										<Dropdown.ListItem onClick={() => firebase.logout()}>
+											Sign out
+										</Dropdown.ListItem>
 									</Dropdown.List>
 								</Dropdown>
 							</Header.Wrapper>

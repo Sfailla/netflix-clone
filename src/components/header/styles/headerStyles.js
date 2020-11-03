@@ -48,21 +48,20 @@ export const Frame = styled.div`
 	justify-content: space-between;
 `;
 
-export const Logo = styled.svg`
+export const Logo = styled.div`
 	padding-top: 8px;
-	width: 167px;
-	height: 53px;
-	fill: #e50914;
 	line-height: normal;
 
-	@media (max-width: 1449px) {
-		width: 134px;
-		height: 44px;
-	}
+	& svg {
+		@media (max-width: 1449px) {
+			width: 134px;
+			height: 44px;
+		}
 
-	@media (max-width: 949px) {
-		width: 112px;
-		height: 40px;
+		@media (max-width: 949px) {
+			width: 112px;
+			height: 40px;
+		}
 	}
 `;
 
