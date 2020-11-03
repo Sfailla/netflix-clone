@@ -1,6 +1,6 @@
 import React from 'react';
 import { RippleContainer } from './rippleStyles';
-import useDebouncedRippleCleanUp from './useDebouncedRippleCleanup';
+import useDebouncedRippleCleanUp from './hooks/useDebouncedRippleCleanup';
 
 const RippleAnimation = ({ duration = 850, color = '#6F6F6F' }) => {
 	const [ rippleArray, setRippleArray ] = React.useState([]);
