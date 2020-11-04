@@ -1,91 +1,71 @@
 import React from 'react';
-import { useAccordionContext } from './hooks';
-import AccordionContext from './AccordionContext';
 
-const useEventKey = (eventKey, onToggle) => {
-	const [ activeEventKey, setActiveEventKey ] = React.useState(eventKey);
+import {
+	Container,
+	Inner,
+	Title,
+	Frame,
+	Item,
+	Header,
+	Body,
+	Content,
+	Svg
+} from './styles/accordionStyles';
 
-	React.useLayoutEffect(
-		() => {
-			setActiveEventKey(eventKey);
-		},
-		[ eventKey, onToggle ]
-	);
-
-	return [ activeEventKey, setActiveEventKey ];
-};
-
-const Accordion = ({
-	element: Component,
-	activeEventKey,
-	onToggle,
-	children,
-	...otherProps
-}) => {
-	const [ eventKey, setEventKey ] = useEventKey(activeEventKey, onToggle);
-
-	const handleToggle = React.useCallback(
-		eventKey => {
-			if (activeEventKey !== undefined) {
-				onToggle(eventKey);
-				return;
-			}
-			setEventKey(eventKey);
-		},
-		[ activeEventKey, onToggle, setEventKey ]
-	);
-
-	const context = React.useMemo(
-		() => {
-			return {
-				activeEventKey: eventKey,
-				onToggle: handleToggle
-			};
-		},
-		[ eventKey, handleToggle ]
-	);
-
+export default function AccordionComponent({ children, ...restProps }) {
 	return (
-		<AccordionContext.Provider value={context}>
-			<Component {...otherProps}>{children}</Component>
-		</AccordionContext.Provider>
+		<Container {...restProps}>
+			<Inner>{children}</Inner>
+		</Container>
 	);
-};
+}
 
-const AccordionClick = (eventKey, onClick) => {
-	const { onToggle, activeEventKey } = useAccordionContext();
-	return event => {
-		event.persist();
-		onToggle(eventKey === activeEventKey ? null : eventKey);
-		if (onClick) {
-			onClick(event);
-		}
-	};
-};
-
-Accordion.Toggle = function Toggle({
-	element: Component,
-	eventKey,
-	onClick,
+AccordionComponent.Header = function AccordionComponentHeader({
 	children,
-	...otherProps
+	...restProps
 }) {
-	const accordionClick = AccordionClick(eventKey, onClick);
+	return <Header {...restProps}>{children}</Header>;
+};
 
+AccordionComponent.Body = function AccordionComponentBody({
+	children,
+	...restProps
+}) {
+	return <Body {...restProps}>{children}</Body>;
+};
+
+AccordionComponent.Content = function AccordionComponentContent({
+	children,
+	...restProps
+}) {
+	return <Content {...restProps}>{children}</Content>;
+};
+
+AccordionComponent.Svg = function AccordionComponentSvg({ ...restProps }) {
 	return (
-		<Component onClick={accordionClick} {...otherProps}>
-			{children}
-		</Component>
+		<Svg viewBox="0 0 30 30" {...restProps}>
+			<path d="M23.73 16.23h-7.5v7.5h-2.461v-7.5h-7.5v-2.461h7.5v-7.5h2.461v7.5h7.5v2.461z" />
+		</Svg>
 	);
 };
 
-Accordion.Collapse = function Collapse({
-	element: Component,
-	eventKey,
+AccordionComponent.Title = function AccordionComponentTitle({
 	children,
-	...otherProps
+	...restProps
 }) {
-	return <Component {...otherProps}>{children}</Component>;
+	return <Title {...restProps}>{children}</Title>;
 };
 
-export default Accordion;
+AccordionComponent.Frame = function AccordionComponentFrame({
+	children,
+	...restProps
+}) {
+	return <Frame {...restProps}>{children}</Frame>;
+};
+
+AccordionComponent.Item = function AccordionComponentItem({
+	children,
+	...restProps
+}) {
+	return <Item {...restProps}>{children}</Item>;
+};

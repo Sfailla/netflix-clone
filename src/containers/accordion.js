@@ -1,39 +1,40 @@
 import React from 'react';
 import FaqData from '../fixtures/faqs.json';
 
-import AccordionStyles from '../components/accordion/accordionStyles';
-import Accordion from '../components/accordion';
+import { AccordionComponent } from '../components';
+import Accordion from '../components/accordion/Accordion';
 
 export default function AccordionContainer({ children }) {
 	const [ activeEventKey, setActiveEventKey ] = React.useState(0);
+	const { Frame, Header, Body } = AccordionComponent;
 
 	return (
-		<AccordionStyles>
-			<AccordionStyles.Title>Frequently Asked Questions</AccordionStyles.Title>
+		<AccordionComponent>
+			<AccordionComponent.Title>Frequently Asked Questions</AccordionComponent.Title>
 			<Accordion
 				activeEventKey={activeEventKey}
 				onToggle={setActiveEventKey}
-				element={AccordionStyles.Frame}
+				component={Frame}
 			>
 				{FaqData.map(({ header, body, id }) => {
 					return (
-						<AccordionStyles.Item key={id}>
-							<Accordion.Toggle element={AccordionStyles.Header} eventKey={id}>
+						<AccordionComponent.Item key={id}>
+							<Accordion.Toggle component={Header} eventKey={id}>
 								{header}
-								<AccordionStyles.Svg toggle={activeEventKey === id} />
+								<AccordionComponent.Svg toggle={activeEventKey === id} />
 							</Accordion.Toggle>
 							<Accordion.Collapse
 								toggle={activeEventKey === id}
 								eventKey={id}
-								element={AccordionStyles.Body}
+								component={Body}
 							>
-								<AccordionStyles.Content>{body}</AccordionStyles.Content>
+								<AccordionComponent.Content>{body}</AccordionComponent.Content>
 							</Accordion.Collapse>
-						</AccordionStyles.Item>
+						</AccordionComponent.Item>
 					);
 				})}
 			</Accordion>
 			{children}
-		</AccordionStyles>
+		</AccordionComponent>
 	);
 }
