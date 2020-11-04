@@ -1,7 +1,7 @@
 import React from 'react';
 import FaqData from '../fixtures/faqs.json';
 
-import { AccordionComponent } from '../components';
+import { AccordionComponent, Icon } from '../components';
 import Accordion from '../components/accordion/Accordion';
 
 export default function AccordionContainer({ children }) {
@@ -18,10 +18,10 @@ export default function AccordionContainer({ children }) {
 			>
 				{FaqData.map(({ header, body, id }) => {
 					return (
-						<AccordionComponent.Item key={id}>
+						<AccordionComponent.Item key={id} toggle={activeEventKey === id}>
 							<Accordion.Toggle component={Header} eventKey={id}>
 								{header}
-								<AccordionComponent.Svg toggle={activeEventKey === id} />
+								<Icon icon="plus" viewBox="0 0 30 30" width={30} height={30} />
 							</Accordion.Toggle>
 							<Accordion.Collapse
 								toggle={activeEventKey === id}

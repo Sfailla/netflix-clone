@@ -60,6 +60,14 @@ export const Item = styled.div`
   display: block;
   text-align: left;
 	background: #000;
+
+	& svg {
+		transform: ${({ toggle }) => (toggle ? 'rotate(-45deg)' : 'rotate(0deg)')};
+		transition: ${({ toggle }) =>
+			toggle
+				? 'transform .25s cubic-bezier(.5, 0, .1, 1) '
+				: 'transform .25s cubic-bezier(.5, 0, .1, 1) .2s'};
+	}
 }
 `;
 
@@ -112,15 +120,4 @@ export const Closed = styled.div`
 	overflow: hidden;
 	max-height: 0;
 	transition: max-height 1s cubic-bezier(.5, 0, .1, 1);
-`;
-
-export const Svg = styled.svg`
-	width: 30px;
-	height: 30px;
-	fill: #fff;
-	transform: ${({ toggle }) => (toggle ? 'rotate(-45deg)' : 'rotate(0deg)')};
-	transition: ${({ toggle }) =>
-		toggle
-			? 'transform .25s cubic-bezier(.5, 0, .1, 1) '
-			: 'transform .25s cubic-bezier(.5, 0, .1, 1) .2s'};
 `;

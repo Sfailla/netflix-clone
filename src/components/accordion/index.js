@@ -8,8 +8,7 @@ import {
 	Item,
 	Header,
 	Body,
-	Content,
-	Svg
+	Content
 } from './styles/accordionStyles';
 
 export default function AccordionComponent({ children, ...restProps }) {
@@ -39,14 +38,6 @@ AccordionComponent.Content = function AccordionComponentContent({
 	...restProps
 }) {
 	return <Content {...restProps}>{children}</Content>;
-};
-
-AccordionComponent.Svg = function AccordionComponentSvg({ ...restProps }) {
-	return (
-		<Svg viewBox="0 0 30 30" {...restProps}>
-			<path d="M23.73 16.23h-7.5v7.5h-2.461v-7.5h-7.5v-2.461h7.5v-7.5h2.461v7.5h7.5v2.461z" />
-		</Svg>
-	);
 };
 
 AccordionComponent.Title = function AccordionComponentTitle({
