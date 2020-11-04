@@ -29,6 +29,11 @@ export const Link = styled.a`
 	vertical-align: top;
 	width: 25%;
 	min-width: 100px;
+	transition: .5s ease-in-out;
+
+	&:hover {
+		color: #0071eb;
+	}
 
 	@media (max-width: 740px) {
 		width: 33%;
@@ -64,6 +69,21 @@ export const Language = styled.div`
 export const Wrapper = styled.div`
 	display: inline-block;
 	position: relative;
+
+	& svg {
+		position: absolute;
+		cursor: pointer;
+
+		&:first-of-type {
+			top: 16px;
+			left: 15px;
+		}
+
+		&:last-of-type {
+			top: 15px;
+			right: 10px;
+		}
+	}
 `;
 
 export const Select = styled.select`
@@ -76,17 +96,10 @@ export const Select = styled.select`
 	padding: 12px 26px 12px 50px;
 	appearance: none;
 	line-height: 1.7;
+	cursor: pointer;
+
 	&:focus {
 		outline: -webkit-focus-ring-color auto 1px;
 	}
 `;
 export const Option = styled.option``;
-
-export const Svg = styled.svg`
-	fill: #fff;
-	width: ${({ globe }) => (globe ? '20px' : '19px')};
-	height: ${({ globe }) => (globe ? '20px' : '23px')};
-	position: absolute;
-	${({ globe }) => (globe ? 'top: 16px' : 'top: 15px')};
-	${({ globe }) => (globe ? 'left: 15px' : 'right: 10px')};
-`;

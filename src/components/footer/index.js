@@ -11,9 +11,8 @@ import {
 	Language,
 	Wrapper,
 	Select,
-	Option,
-	Svg
-} from './styles/footer';
+	Option
+} from './styles/footerStyles';
 
 export default function Footer({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
@@ -61,12 +60,4 @@ Footer.Select = function FooterSelect({ children, ...restProps }) {
 
 Footer.Option = function FooterOption({ children, ...restProps }) {
 	return <Option {...restProps}>{children}</Option>;
-};
-
-Footer.Svg = function FooterSvg({ globe, d, ...restProps }) {
-	return (
-		<Svg globe={globe} {...restProps}>
-			<path d={d} />
-		</Svg>
-	);
 };
