@@ -1,5 +1,5 @@
 export { default as Jumbotron } from './jumbotron';
-export { default as AccordionComponent } from './accordion';
+export { default as Accordion } from './accordion';
 export { default as SignUp } from './signup';
 export { default as Footer } from './footer';
 export { default as Header } from './header';
@@ -10,3 +10,4 @@ export { default as Loader } from './loader';
 export { default as Feature } from './feature';
 export { default as Dropdown } from './menu';
 export { default as Icon } from './svg';
+export { default as FrequentQuestions } from './faq';
