@@ -17,7 +17,7 @@ import {
 	Button,
 	HelpLink,
 	SignUpLink
-} from './styles/sign-in';
+} from './styles/signinStyles';
 
 export default function SignIn({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;

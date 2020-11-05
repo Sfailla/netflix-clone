@@ -10,7 +10,7 @@ import {
 	FormGroup,
 	Error,
 	Svg
-} from './styles/sign-up';
+} from './styles/signupStyles';
 
 export default function SignUp({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
