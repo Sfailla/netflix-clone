@@ -1,4 +1,5 @@
 import useAccordionContext from './useAccordionContext';
 import useEventKey from './useEventKey';
+import useAccordionClick from './useAccordionClick';
 
-export { useAccordionContext, useEventKey };
+export { useAccordionContext, useAccordionClick, useEventKey };

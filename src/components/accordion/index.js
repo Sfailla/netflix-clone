@@ -1,62 +1,87 @@
 import React from 'react';
+import { useAccordionClick, useEventKey } from './hooks';
+import AccordionContext from './context';
+import { Header, Body, Frame, Content, Item } from './styles/accordionStyles';
 
-import {
-	Container,
-	Inner,
-	Title,
-	Frame,
-	Item,
-	Header,
-	Body,
-	Content
-} from './styles/accordionStyles';
-
-export default function AccordionComponent({ children, ...restProps }) {
-	return (
-		<Container {...restProps}>
-			<Inner>{children}</Inner>
-		</Container>
-	);
-}
-
-AccordionComponent.Header = function AccordionComponentHeader({
+const Accordion = ({
+	component: Component,
+	activeEventKey,
+	onToggle,
 	children,
-	...restProps
+	...otherProps
+}) => {
+	const [ eventKey, setEventKey ] = useEventKey(activeEventKey, onToggle);
+
+	const handleToggle = React.useCallback(
+		eventKey => {
+			if (activeEventKey !== undefined) {
+				onToggle(eventKey);
+				return;
+			}
+			setEventKey(eventKey);
+		},
+		[ activeEventKey, onToggle, setEventKey ]
+	);
+
+	const context = React.useMemo(
+		() => {
+			return {
+				activeEventKey: eventKey,
+				onToggle: handleToggle
+			};
+		},
+		[ eventKey, handleToggle ]
+	);
+
+	return (
+		<AccordionContext.Provider value={context}>
+			<Component {...otherProps}>{children}</Component>
+		</AccordionContext.Provider>
+	);
+};
+
+Accordion.Toggle = function Toggle({
+	component: Component,
+	eventKey,
+	onClick,
+	children,
+	...otherProps
 }) {
+	const accordionClick = useAccordionClick(eventKey, onClick);
+
+	return (
+		<Component onClick={accordionClick} {...otherProps}>
+			{children}
+		</Component>
+	);
+};
+
+Accordion.Collapse = function Collapse({
+	component: Component,
+	children,
+	...otherProps
+}) {
+	return <Component {...otherProps}>{children}</Component>;
+};
+
+Accordion.Header = function AccordionHeader({ children, ...restProps }) {
 	return <Header {...restProps}>{children}</Header>;
 };
 
-AccordionComponent.Body = function AccordionComponentBody({
-	children,
-	...restProps
-}) {
+Accordion.Body = function AccordionBody({ children, ...restProps }) {
 	return <Body {...restProps}>{children}</Body>;
 };
 
-AccordionComponent.Content = function AccordionComponentContent({
-	children,
-	...restProps
-}) {
-	return <Content {...restProps}>{children}</Content>;
-};
-
-AccordionComponent.Title = function AccordionComponentTitle({
-	children,
-	...restProps
-}) {
-	return <Title {...restProps}>{children}</Title>;
-};
-
-AccordionComponent.Frame = function AccordionComponentFrame({
-	children,
-	...restProps
-}) {
+Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
 	return <Frame {...restProps}>{children}</Frame>;
 };
 
-AccordionComponent.Item = function AccordionComponentItem({
-	children,
-	...restProps
-}) {
+Accordion.Content = function AccordionContent({ children, ...restProps }) {
+	return <Content {...restProps}>{children}</Content>;
+};
+
+Accordion.Item = function AccordionItem({ children, ...restProps }) {
 	return <Item {...restProps}>{children}</Item>;
 };
+
+export default Accordion;
