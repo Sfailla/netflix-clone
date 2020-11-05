@@ -11,3 +11,4 @@ export { default as Feature } from './feature';
 export { default as Dropdown } from './menu';
 export { default as Icon } from './svg';
 export { default as FrequentQuestions } from './faq';
+export { default as Input } from './input';
