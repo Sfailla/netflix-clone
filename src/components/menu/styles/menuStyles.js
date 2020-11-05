@@ -3,14 +3,15 @@ import styled from 'styled-components/macro';
 export const Container = styled.div`
 	display: inline-block;
 	cursor: pointer;
-	position: relative;
 `;
 
 export const Target = styled.div`
-	width: auto;
-	height: auto;
+	width: 35px;
+	height: 35px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 	cursor: pointer;
-	padding: 5px;
 `;
 
 export const Wrapper = styled.div``;
@@ -35,8 +36,8 @@ export const List = styled.ul`
 	background-color: white;
 
 	position: absolute;
-	top: 100%;
-	left: -56px;
+	top: 116%;
+	right: 0px;
 
 	transition: left 1s linear;
 `;

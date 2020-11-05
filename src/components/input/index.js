@@ -1,5 +1,12 @@
 import React from 'react';
-import { Container, Form, FormGroup, Input, Label } from './styles/inputStyles';
+import {
+	Container,
+	Form,
+	FormGroup,
+	Input,
+	Label,
+	Button
+} from './styles/inputStyles';
 
 export default function CustomInput({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
@@ -19,4 +26,8 @@ CustomInput.Input = function MyInput({ children, ...restProps }) {
 
 CustomInput.Label = function CustomInputLabel({ children, ...restProps }) {
 	return <Label {...restProps}>{children}</Label>;
+};
+
+CustomInput.Button = function CustomInputButton({ children, ...restProps }) {
+	return <Button {...restProps}>{children}</Button>;
 };
