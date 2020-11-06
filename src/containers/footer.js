@@ -27,7 +27,7 @@ export default function FooterContainer() {
 									<Footer.Option>Espanol</Footer.Option>
 								</Footer.Select>
 								<Icon
-									icon="chevron_right"
+									icon="chevron-right"
 									viewBox="0 0 24 24"
 									width={19}
 									height={23}
