@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
 	width: 100%;
-	margin: 0 auto 90px auto;
+	margin: 0 auto;
 	min-height: 100%;
 	background-color: transparent;
 	max-width: 450px;
@@ -63,7 +63,6 @@ export const Wrapper = styled.div`
 	min-width: 380px;
 	min-height: 660px;
 	padding: 60px 68px 40px;
-	margin-bottom: 90px;
 
 	@media (max-width: 740px) {
 		min-height: 550px;
