@@ -66,9 +66,11 @@ export const Logo = styled.div`
 `;
 
 export const LogoLink = styled(Link)`
-	display: inline-block;
+	display: flex;
 	width: 167px;
 	height: 53px;
+
+
 
 	@media (max-width: 1449px) {
 		width: 134px;
@@ -100,6 +102,34 @@ export const ButtonLink = styled(Link)`
   }
 `;
 
+export const NavLink = styled.a`
+	display: inline-block;
+	color: ${({ isActive }) => (isActive ? 'white' : 'grey')};
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 16px;
+	white-space: nowrap;
+	padding-left: 10px;
+	text-decoration: none;
+	cursor: pointer;
+
+	&.active {
+		color: white;
+		font-weight: bold;
+	}
+
+	@media (max-width: 700px) {
+		&:first-of-type {
+			padding-left: 0;
+		}
+	}
+`;
+
+export const ActiveClass = styled(NavLink)`
+	color: white;
+	font-weight: bold;
+`;
+
 export const SignInButton = styled.button`
 	width: 100%;
 	height: 100%;
@@ -112,27 +142,28 @@ export const SignInButton = styled.button`
 `;
 
 export const Profile = styled.div`
-	display: inline;
-	height: auto;
-	padding-top: 8px;
+	display: flex;
+	gap: 15px;
+	height: 35px;
+	margin-top: 8px;
+	position: relative;
+`;
+
+export const Search = styled.div`
+	width: auto;
+	height: 35px;
 `;
 
 export const Wrapper = styled.div`
+	height: ${({ height }) => height + 'px' || '100%'};
+	padding: ${({ padding }) => padding || null};
 	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	flex-direction: ${({ direction }) => direction || 'row'};
+	justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
+	align-items: ${({ alignItems }) => alignItems || null};
 `;
 
 export const Avatar = styled.img`
 	width: ${({ size }) => size}px;
 	height: ${({ size }) => size}px;
-	margin-right: 10px;
-`;
-
-export const Svg = styled.svg`
-	width: 23px;
-	height: 19px;
-	fill: white;
-	position: absolute;
-	left: 48px;
 `;
