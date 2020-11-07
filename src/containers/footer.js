@@ -11,7 +11,9 @@ export default function FooterContainer() {
 						<Footer.Title>Questions? contact us</Footer.Title>
 						<Footer.Break />
 						{footerLinks.map(link => (
-							<Footer.Link href={link.href}>{link.name}</Footer.Link>
+							<Footer.Link key={link.name} href={link.href}>
+								{link.name}
+							</Footer.Link>
 						))}
 						<Footer.Language>
 							<Footer.Wrapper>
