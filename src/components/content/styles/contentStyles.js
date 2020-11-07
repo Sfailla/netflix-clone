@@ -23,3 +23,7 @@ export const ContentRating = styled.div``;
 export const Metadata = styled.div``;
 
 export const Entities = styled.div``;
+
+export const Image = styled.img``;
+
+export const Item = styled.div``;
