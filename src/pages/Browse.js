@@ -6,7 +6,7 @@ import selectionFilter from '../utils/filters/selectionFilter';
 
 export default function BrowsePage() {
 	const { movies, series } = useContent();
-	const { contentList } = selectionFilter({ series, movies });
+	const contentList = selectionFilter({ series, movies });
 	const src = 'joker1';
 
 	return (
@@ -21,6 +21,7 @@ export default function BrowsePage() {
 							one he paints for his day job as a clown, and the guise he projects in
 							a futile attempt to feel like he's a part of the world around him.
 						</Feature.Body>
+						<Feature.Button>Play now</Feature.Button>
 					</Feature.Wrapper>
 				</Feature>
 			</Header>
