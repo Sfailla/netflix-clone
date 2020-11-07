@@ -12,3 +12,4 @@ export { default as Dropdown } from './menu';
 export { default as Icon } from './svg';
 export { default as FrequentQuestions } from './faq';
 export { default as SearchInput } from './search-input';
+export { default as Content } from './content';
