@@ -18,10 +18,13 @@ import { Icon } from '../index';
 
 // MAIN HEADER STYLING
 
-export default function Header({
+export default function Header({ children, ...restProps }) {
+	return <Container {...restProps}>{children}</Container>;
+}
+
+Header.Background = function HeaderBackground({
 	backgroundImage,
 	authButton,
-
 	children,
 	...restProps
 }) {
@@ -34,7 +37,7 @@ export default function Header({
 			)}
 		</Background>
 	);
-}
+};
 
 Header.BackgroundImg = function HeaderBackgroundImg({
 	src,
@@ -46,10 +49,6 @@ Header.BackgroundImg = function HeaderBackgroundImg({
 			{children}
 		</BackgroundImg>
 	);
-};
-
-Header.Container = function HeaderContainer({ children, ...restProps }) {
-	return <Container {...restProps}>{children}</Container>;
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {

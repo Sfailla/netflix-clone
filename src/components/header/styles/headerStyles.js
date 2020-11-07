@@ -1,14 +1,14 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
-export const Background = styled.div`
-	display: flex;
-	flex-direction: column;
-	height: auto;
+export const Container = styled.div`
+	width: 100%;
+	height: 100%;
+	position: relative;
 
 	&::after {
 		content: '';
-		height: auto;
+		height: inherit;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -24,28 +24,30 @@ export const Background = styled.div`
 	}
 `;
 
-export const BackgroundImg = styled.div`
-	background: url(${({ src }) =>
-			src ? `../images/misc/${src}.jpg` : '../images/misc/netflix-home-bg.jpg'})
-		no-repeat center / cover;
-`;
-
-export const Container = styled.div`
-	width: 100%;
-	height: 160px;
+export const Background = styled.div`
+	height: 100%;
 	max-width: 1920px;
 	margin: 0 auto;
-	padding-top: 20px;
-	background: transparent;
-	position: relative;
 	z-index: 5;
 `;
 
+const backgrounds = {
+	movieTitles: '../images/misc/netflix-home-bg.jpg',
+	joker: '../images/misc/joker1.jpg'
+};
+
+export const BackgroundImg = styled.div`
+	background: url(${({ src }) => backgrounds[src]}) no-repeat center / cover;
+`;
+
 export const Frame = styled.div`
+	padding-top: 20px;
 	margin: 0 56px;
-	height: 100%;
+	height: 160px;
 	display: flex;
 	justify-content: space-between;
+	position: relative;
+	z-index: 5;
 `;
 
 export const Logo = styled.div`
