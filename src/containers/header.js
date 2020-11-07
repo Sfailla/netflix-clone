@@ -1,7 +1,8 @@
 import React from 'react';
-import { Header, Dropdown, Icon, Input } from '../components/index';
+import { Header, Dropdown, Icon, SearchInput } from '../components/index';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../firebase';
+import useForm from '../hooks/useForm';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function HeaderContainer({
@@ -13,6 +14,9 @@ export default function HeaderContainer({
 }) {
 	const { setRegister, authUser, firebase } = React.useContext(FirebaseContext);
 	const { width } = useWindowSize();
+	const { handleChange, handleSubmit, values } = useForm({ search: '' });
+
+	const { search } = values;
 	const handleClick = () => setRegister(null);
 
 	return (
@@ -23,8 +27,8 @@ export default function HeaderContainer({
 						<Header.Logo to={ROUTES.HOME} />
 						{profile && (
 							<Header.Wrapper padding="8px 0 0 0" height={44} alignItems="center">
-								<Header.NavLink to="#0">tv series</Header.NavLink>
-								<Header.NavLink to="#1">movies</Header.NavLink>
+								<Header.NavLink href="#0">tv series</Header.NavLink>
+								<Header.NavLink href="#1">movies</Header.NavLink>
 							</Header.Wrapper>
 						)}
 					</Header.Wrapper>
@@ -36,22 +40,23 @@ export default function HeaderContainer({
 					{profile && authUser ? (
 						<Header.Profile>
 							<Header.Search>
-								<Input>
-									<Input.Form>
-										<Input.FormGroup>
-											<Input.Input />
-											<Input.Label>Search</Input.Label>
-											<Input.Button type="button" disabled={false}>
-												<Icon
-													icon="search"
-													viewBox="0 0 30 30"
-													size={20}
-													fill="#4e4e4e"
-												/>
-											</Input.Button>
-										</Input.FormGroup>
-									</Input.Form>
-								</Input>
+								<SearchInput>
+									<SearchInput.Form onSubmit={handleSubmit}>
+										<SearchInput.FormGroup>
+											<SearchInput.Input
+												onChange={handleChange}
+												name="search"
+												type="text"
+												value={search}
+												placeholder=" "
+											/>
+											<SearchInput.Label>Search</SearchInput.Label>
+											<SearchInput.Button type="button">
+												<Icon icon="search" viewBox="0 0 30 30" size={20} />
+											</SearchInput.Button>
+										</SearchInput.FormGroup>
+									</SearchInput.Form>
+								</SearchInput>
 							</Header.Search>
 							<Header.Avatar size={35} src={`/images/user/${authUser.photoURL}`} />
 							<Dropdown>
