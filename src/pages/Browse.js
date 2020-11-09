@@ -12,8 +12,10 @@ export default function BrowsePage() {
 	const { handleChange, handleSubmit, values } = useForm({ search: '' });
 	const { movies, series } = useContent();
 	const { width } = useWindowSize();
-	const { search } = values;
+	const [ category, setCategory ] = React.useState('series');
+
 	const contentList = selectionFilter({ series, movies });
+	const { search } = values;
 
 	return (
 		<PageContainer>
@@ -23,8 +25,20 @@ export default function BrowsePage() {
 						<Header.Wrapper direction={width < 700 ? 'column' : 'row'}>
 							<Header.Logo to={ROUTES.HOME} />
 							<Header.Wrapper padding="8px 0 0 0" height={44} alignItems="center">
-								<Header.NavLink href="#0">tv series</Header.NavLink>
-								<Header.NavLink href="#1">movies</Header.NavLink>
+								<Header.NavLink
+									onClick={() => setCategory('series')}
+									isActive={category === 'series'}
+									href="#0"
+								>
+									tv series
+								</Header.NavLink>
+								<Header.NavLink
+									onClick={() => setCategory('movies')}
+									isActive={category === 'movies'}
+									href="#1"
+								>
+									movies
+								</Header.NavLink>
 							</Header.Wrapper>
 						</Header.Wrapper>
 						<Header.Profile>
@@ -76,7 +90,7 @@ export default function BrowsePage() {
 					</Feature>
 				</Header.Background>
 			</Header>
-			<Browse contentList={contentList} />
+			<Browse contentList={contentList} category={category} />
 		</PageContainer>
 	);
 }
