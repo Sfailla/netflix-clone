@@ -55,19 +55,9 @@ Header.Frame = function HeaderFrame({ children, ...restProps }) {
 	return <Frame {...restProps}>{children}</Frame>;
 };
 
-Header.NavLink = function HeaderNavLink({
-	isActive = false,
-	children,
-	...restProps
-}) {
-	const [ activeClass, setActiveClass ] = React.useState(false);
-
-	const handleActiveClass = () => {
-		setActiveClass(prevState => !prevState);
-	};
-
+Header.NavLink = function HeaderNavLink({ isActive, children, ...restProps }) {
 	return (
-		<NavLink isActive={activeClass} onClick={handleActiveClass} {...restProps}>
+		<NavLink isActive={isActive} {...restProps}>
 			{children}
 		</NavLink>
 	);
