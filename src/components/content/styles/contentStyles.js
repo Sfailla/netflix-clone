@@ -18,7 +18,9 @@ export const FeatureText = styled(Text)``;
 
 export const FeatureClose = styled.button``;
 
-export const ContentRating = styled.div``;
+export const Rating = styled.div``;
+
+export const Selection = styled.div``;
 
 export const Metadata = styled.div``;
 

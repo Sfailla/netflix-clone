@@ -52,6 +52,10 @@ Content.Metadata = function ContentMetadata({ children, ...restProps }) {
 	return <Metadata {...restProps}>{children}</Metadata>;
 };
 
+Content.Entities = function ContentEntities({ children, ...restProps }) {
+	return <Entities {...restProps}>{children}</Entities>;
+};
+
 Content.Item = function ContentItem({ item, children, ...restProps }) {
 	const { setShowFeature, setItemFeature } = React.useContext(FeatureContext);
 
@@ -70,4 +74,50 @@ Content.Item = function ContentItem({ item, children, ...restProps }) {
 
 Content.Image = function ContentImage({ children, ...restProps }) {
 	return <Image {...restProps}>{children}</Image>;
+};
+
+Content.Rating = function ContentRating({ children, ...restProps }) {
+	return <Rating {...restProps}>{children}</Rating>;
+};
+
+Content.Selection = function ContentSelection({ children, ...restProps }) {
+	return <Selection {...restProps}>{children}</Selection>;
+};
+
+Content.FeatureTitle = function ContentFeatureTitle({ children, ...restProps }) {
+	return <FeatureTitle {...restProps}>{children}</FeatureTitle>;
+};
+
+Content.FeatureText = function ContentFeatureText({ children, ...restProps }) {
+	return <FeatureText {...restProps}>{children}</FeatureText>;
+};
+
+Content.FeatureClose = function ContentFeatureClose({ children, ...restProps }) {
+	return <FeatureClose {...restProps}>{children}</FeatureClose>;
+};
+
+Content.Feature = function ContentFeature({ category, children, ...restProps }) {
+	const { showFeature, setShowFeature, itemFeature } = React.useContext(
+		FeatureContext
+	);
+	return showFeature ? (
+		<Feature
+			src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
+			{...restProps}
+		>
+			<Selection>
+				<FeatureTitle>{itemFeature.title}</FeatureTitle>
+				<FeatureText>{itemFeature.description}</FeatureText>
+				<FeatureClose onClick={() => setShowFeature(false)}>{children}</FeatureClose>
+			</Selection>
+			<Group margin="30px 0" flexDirection="row" alignItems="center">
+				<Rating rating={itemFeature.maturity}>
+					{itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
+				</Rating>
+				<FeatureText fontWeight="bold">
+					{itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
+				</FeatureText>
+			</Group>
+		</Feature>
+	) : null;
 };
