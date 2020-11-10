@@ -110,7 +110,7 @@ Content.Feature = function ContentFeature({ category, children, ...restProps }) 
 				<FeatureText>{itemFeature.description}</FeatureText>
 				<FeatureClose onClick={() => setShowFeature(false)}>{children}</FeatureClose>
 			</Selection>
-			<Group margin="30px 0" flexDirection="row" alignItems="center">
+			<Group>
 				<Rating rating={itemFeature.maturity}>
 					{itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
 				</Rating>
