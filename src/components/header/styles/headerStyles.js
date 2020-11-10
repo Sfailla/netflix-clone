@@ -37,7 +37,12 @@ const backgrounds = {
 };
 
 export const BackgroundImg = styled.div`
-	background: url(${({ src }) => backgrounds[src]}) no-repeat center / cover;
+	background: url(${({ src }) => backgrounds[src]}) no-repeat top center;
+	background-size: cover;
+
+	@media (min-width: 1000px) {
+		background-size: ${({ src }) => (src === 'joker' ? 'contain' : 'cover')};
+	}
 `;
 
 export const Frame = styled.div`
