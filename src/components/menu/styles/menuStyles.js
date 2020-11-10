@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Target = styled.div`
-	width: 35px;
+	width: auto;
 	height: 35px;
 	display: flex;
 	justify-content: flex-start;
