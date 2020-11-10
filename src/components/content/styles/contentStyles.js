@@ -20,8 +20,6 @@ export const Title = styled.h1`
 	font-size: 24px;
 	color: #e5e5e5;
 	font-weight: bold;
-
-	margin-left: 56px;
 `;
 
 export const Subtitle = styled.h2``;
@@ -53,7 +51,6 @@ export const Metadata = styled.div`
 export const Entities = styled.div`
 	display: flex;
 	gap: 5px;
-	margin-left: 56px;
 `;
 
 export const Image = styled.img`

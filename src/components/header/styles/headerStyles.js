@@ -47,7 +47,6 @@ export const BackgroundImg = styled.div`
 
 export const Frame = styled.div`
 	padding-top: 20px;
-	margin: 0 56px;
 	height: 160px;
 	display: flex;
 	justify-content: space-between;
