@@ -46,9 +46,10 @@ export const Body = styled.p`
 `;
 
 export const Button = styled.button`
-	background-color: #e6e6e6;
-	color: #000;
-	border: 0;
+	background-color: transparent;
+	color: #fff;
+	border: 2px solid;
+	border-color: #e6e6e6;
 	outline: 0;
 	padding: 10px 20px;
 	border-radius: 5px;
@@ -56,10 +57,16 @@ export const Button = styled.button`
 	font-size: 20px;
 	margin-top: 10px;
 	cursor: pointer;
-	transition: background-color 0.3s ease, color 0.3s ease;
+	transition: border-color 0.3s ease, color 0.3s ease;
 
 	&:hover {
-		background-color: #ff1e1e;
-		color: white;
+		border-color: #ff1e1e;
+		color: #ff1e1e;
+	}
+
+	@media (max-width: 850px) {
+		width: 100px;
+		height: 30px;
+		font-size: 12px;
 	}
 `;
