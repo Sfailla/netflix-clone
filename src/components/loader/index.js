@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Positioner, Image } from './styles/loaderStyles';
-import randomAvatar from '../../utils/randomAvatar';
+import randomAvatar from '../../utils/helpers/randomAvatar';
 
 export default function Loader({ children, ...restProps }) {
 	return (

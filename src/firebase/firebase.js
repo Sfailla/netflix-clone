@@ -2,7 +2,7 @@ import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import firebaseConfig from './config';
-import randomAvatar from '../utils/randomAvatar';
+import randomAvatar from '../utils/helpers/randomAvatar';
 
 randomAvatar();
 
