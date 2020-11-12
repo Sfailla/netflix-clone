@@ -56,6 +56,9 @@ export const Button = styled.button`
 	max-width: 130px;
 	font-size: 20px;
 	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	cursor: pointer;
 	transition: border-color 0.3s ease, color 0.3s ease;
 
