@@ -29,14 +29,12 @@ export default function BrowsePage() {
 									<Header.NavLink
 										onClick={() => setCategory('series')}
 										isActive={category === 'series'}
-										href="#0"
 									>
 										tv series
 									</Header.NavLink>
 									<Header.NavLink
 										onClick={() => setCategory('movies')}
 										isActive={category === 'movies'}
-										href="#1"
 									>
 										movies
 									</Header.NavLink>

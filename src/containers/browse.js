@@ -4,23 +4,18 @@ import { Content } from '../components';
 export default function BrowseContainer({ contentList, category }) {
 	return (
 		<Content.Group>
-			{contentList[category].map((slideItems, index) => {
+			{contentList[category].map((rowItems, index) => {
 				return (
 					<Content key={index}>
-						<Content.Title>{slideItems.title}</Content.Title>
+						<Content.Title>{rowItems.title}</Content.Title>
 						<Content.Entities>
-							{slideItems.data.length &&
-								slideItems.data.map(item => (
-									<Content.Item key={item.id} item={item}>
-										<Content.Image
-											src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
-										/>
-										<Content.Metadata>
-											<Content.Subtitle>{item.title}</Content.Subtitle>
-											<Content.Text>{item.description}</Content.Text>
-										</Content.Metadata>
-									</Content.Item>
-								))}
+							{rowItems.data.map(item => (
+								<Content.Item key={item.id} item={item}>
+									<Content.Image
+										src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+									/>
+								</Content.Item>
+							))}
 						</Content.Entities>
 						<Content.Feature category={category}>
 							{/* <VideoPlayer>
