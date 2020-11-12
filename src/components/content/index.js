@@ -1,7 +1,11 @@
 import React from 'react';
+import { Icon } from '../../components';
+import { useClickOutsideRef } from '../../hooks';
+import { maturityRating } from '../../utils/helpers/maturityRating';
 import {
 	Container,
 	Group,
+	Wrapper,
 	Title,
 	Subtitle,
 	Text,
@@ -17,7 +21,13 @@ import {
 	Image
 } from './styles/contentStyles';
 
-export const FeatureContext = React.createContext(null);
+const defaultContextState = {
+	showFeature: false,
+	itemFeature: {},
+	setShowFeature: () => {},
+	setItemFeature: () => {}
+};
+export const FeatureContext = React.createContext(defaultContextState);
 
 export default function Content({ children, ...restProps }) {
 	const [ showFeature, setShowFeature ] = React.useState(false);
@@ -31,6 +41,10 @@ export default function Content({ children, ...restProps }) {
 		</FeatureContext.Provider>
 	);
 }
+
+Content.Wrapper = function ContentWrapper({ children, ...restProps }) {
+	return <Wrapper {...restProps}>{children}</Wrapper>;
+};
 
 Content.Group = function ContentGroup({ children, ...restProps }) {
 	return <Group {...restProps}>{children}</Group>;
@@ -57,14 +71,25 @@ Content.Entities = function ContentEntities({ children, ...restProps }) {
 };
 
 Content.Item = function ContentItem({ item, children, ...restProps }) {
-	const { setShowFeature, setItemFeature } = React.useContext(FeatureContext);
+	const { setShowFeature, setItemFeature, itemFeature } = React.useContext(
+		FeatureContext
+	);
+	const [ isActive, setIsActive ] = React.useState(false);
+	const itemRef = React.useRef();
+
+	const handleRemoveActive = () => setIsActive(false);
+
+	useClickOutsideRef(itemRef, handleRemoveActive);
 
 	return (
 		<Item
+			ref={itemRef}
 			onClick={() => {
 				setItemFeature(item);
 				setShowFeature(true);
+				setIsActive(true);
 			}}
+			isActive={isActive}
 			{...restProps}
 		>
 			{children}
@@ -100,24 +125,23 @@ Content.Feature = function ContentFeature({ category, children, ...restProps }) 
 	const { showFeature, setShowFeature, itemFeature } = React.useContext(
 		FeatureContext
 	);
+
 	return showFeature ? (
 		<Feature
 			src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
 			{...restProps}
 		>
 			<Selection>
-				<FeatureTitle>{itemFeature.title}</FeatureTitle>
+				<Wrapper>
+					<FeatureTitle>{itemFeature.title}</FeatureTitle>
+					<Rating>{maturityRating(itemFeature.maturity)}</Rating>
+				</Wrapper>
 				<FeatureText>{itemFeature.description}</FeatureText>
-				<FeatureClose onClick={() => setShowFeature(false)}>{children}</FeatureClose>
+				<FeatureClose onClick={() => setShowFeature(false)}>
+					<Icon icon="close-circle" fill="#e50914" size={25} />
+				</FeatureClose>
 			</Selection>
-			<Group>
-				<Rating rating={itemFeature.maturity}>
-					{itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
-				</Rating>
-				<FeatureText fontWeight="bold">
-					{itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
-				</FeatureText>
-			</Group>
+			{children}
 		</Feature>
 	) : null;
 };
