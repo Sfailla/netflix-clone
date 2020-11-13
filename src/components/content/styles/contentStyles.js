@@ -60,10 +60,6 @@ export const Feature = styled.div`
 	height: 360px;
 	background: url(${({ src }) => src}) no-repeat center right / cover;
 	display: flex;
-
-	@media (max-width: 1000px) {
-		height: 180px;
-	}
 `;
 
 export const FeatureTitle = styled(Title)`
@@ -136,7 +132,7 @@ export const Entities = styled.div`
 
 export const Image = styled.img`
 	width: 100%;
-	min-width: 150px;
+	min-width: 200px;
 	height: 100%;
 	object-fit: cover;
 	cursor: pointer;
