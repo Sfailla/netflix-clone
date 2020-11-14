@@ -35,7 +35,12 @@ export default function Content({ children, ...restProps }) {
 
 	return (
 		<FeatureContext.Provider
-			value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}
+			value={{
+				showFeature,
+				setShowFeature,
+				itemFeature,
+				setItemFeature
+			}}
 		>
 			<Container {...restProps}>{children}</Container>
 		</FeatureContext.Provider>
@@ -71,9 +76,7 @@ Content.Entities = function ContentEntities({ children, ...restProps }) {
 };
 
 Content.Item = function ContentItem({ item, children, ...restProps }) {
-	const { setShowFeature, setItemFeature, itemFeature } = React.useContext(
-		FeatureContext
-	);
+	const { setShowFeature, setItemFeature } = React.useContext(FeatureContext);
 	const [ isActive, setIsActive ] = React.useState(false);
 	const itemRef = React.useRef();
 
@@ -134,7 +137,9 @@ Content.Feature = function ContentFeature({ category, children, ...restProps }) 
 			<Selection>
 				<Wrapper>
 					<FeatureTitle>{itemFeature.title}</FeatureTitle>
-					<Rating>{maturityRating(itemFeature.maturity)}</Rating>
+					<Rating rating={itemFeature.maturity}>
+						{maturityRating(itemFeature.maturity)}
+					</Rating>
 				</Wrapper>
 				<FeatureText>{itemFeature.description}</FeatureText>
 				<FeatureClose onClick={() => setShowFeature(false)}>

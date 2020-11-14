@@ -9,13 +9,15 @@ export default function BrowseContainer({ contentList, category }) {
 					<Content key={index}>
 						<Content.Title>{rowItems.title}</Content.Title>
 						<Content.Entities>
-							{rowItems.data.map(item => (
-								<Content.Item key={item.id} item={item}>
-									<Content.Image
-										src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
-									/>
-								</Content.Item>
-							))}
+							{rowItems.data.map(item => {
+								return (
+									<Content.Item key={item.id} item={item}>
+										<Content.Image
+											src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+										/>
+									</Content.Item>
+								);
+							})}
 						</Content.Entities>
 						<Content.Feature category={category}>
 							{/* <VideoPlayer>
