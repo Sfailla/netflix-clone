@@ -131,6 +131,7 @@ export const Entities = styled.div`
 `;
 
 export const Image = styled.img`
+	display: block;
 	width: 100%;
 	min-width: 200px;
 	height: 100%;
