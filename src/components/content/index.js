@@ -27,6 +27,7 @@ const defaultContextState = {
 	setShowFeature: () => {},
 	setItemFeature: () => {}
 };
+
 export const FeatureContext = React.createContext(defaultContextState);
 
 export default function Content({ children, ...restProps }) {

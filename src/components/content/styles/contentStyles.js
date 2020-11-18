@@ -60,6 +60,10 @@ export const Feature = styled.div`
 	height: 360px;
 	background: url(${({ src }) => src}) no-repeat center right / cover;
 	display: flex;
+
+	@media (max-width: 750px) {
+		height: 180px;
+	}
 `;
 
 export const FeatureTitle = styled(Title)`
@@ -119,6 +123,10 @@ export const Selection = styled.div`
 
   @media (max-width: 850px) {
     max-width: 75%;
+	}
+	
+  @media (max-width: 750px) {
+    max-width: 100%;
   }
 `;
 
@@ -127,13 +135,11 @@ export const Metadata = styled.div``;
 export const Entities = styled.div`
 	display: flex;
 	width: 100%;
-	height: 150px;
 `;
 
 export const Image = styled.img`
 	display: block;
 	width: 100%;
-	min-width: 200px;
 	height: 100%;
 	object-fit: cover;
 	cursor: pointer;
@@ -174,6 +180,13 @@ export const Item = styled.div`
       left: 50%;
       transform: translateX(-50%);
   
-      transition: all .1s ease-in .1s;
+			transition: all .1s ease-in .1s;
+			
+			@media (max-width: 750px) {
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-top: 10px solid #fff;
+				bottom: -11px;
+			}
     }`};
 `;
