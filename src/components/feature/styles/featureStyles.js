@@ -2,7 +2,8 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
 	width: 100%;
-	height: 40vh;
+	height: 100%;
+	padding-bottom: 50px;
 	margin: 0;
 	position: relative;
 	z-index: 5;
