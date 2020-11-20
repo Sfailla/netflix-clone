@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content } from '../components';
+import { Content, VideoPlayer } from '../components';
 
 export default function BrowseContainer({ contentList, category }) {
 	return (
@@ -20,10 +20,10 @@ export default function BrowseContainer({ contentList, category }) {
 							})}
 						</Content.Entities>
 						<Content.Feature category={category}>
-							{/* <VideoPlayer>
+							<VideoPlayer>
 								<VideoPlayer.Button />
-								<VideoPlayer.Video src="/images/videos/stranger-things.m4v" />
-							</VideoPlayer> */}
+								<VideoPlayer.Video trailer="Cz6oddi0mts" />
+							</VideoPlayer>
 						</Content.Feature>
 					</Content>
 				);
