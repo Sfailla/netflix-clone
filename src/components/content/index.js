@@ -146,8 +146,8 @@ Content.Feature = function ContentFeature({ category, children, ...restProps }) 
 				<FeatureClose onClick={() => setShowFeature(false)}>
 					<Icon icon="close-circle" fill="#e50914" size={25} />
 				</FeatureClose>
+				{children}
 			</Selection>
-			{children}
 		</Feature>
 	) : null;
 };

@@ -74,7 +74,9 @@ export const FeatureTitle = styled(Title)`
 export const FeatureText = styled(Text)`
   font-size: 18px;
   font-weight: normal;
-  color: #e6e6e6;
+	color: #e6e6e6;
+	padding-bottom: 20px;
+	line-height: 1.5;
 
   @media (max-width: 1000px) {
     font-size: 14px;
