@@ -64,7 +64,7 @@ VideoPlayer.Button = function VideoPlayerButton({ ...restProps }) {
 	const { setShowPlayer } = React.useContext(VideoPlayerContext);
 
 	return (
-		<Button onClick={() => setShowPlayer(prevState => !prevState)} {...restProps}>
+		<Button onClick={() => setShowPlayer(true)} {...restProps}>
 			Play now
 		</Button>
 	);

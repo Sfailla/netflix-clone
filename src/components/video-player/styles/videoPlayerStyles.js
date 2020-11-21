@@ -42,7 +42,6 @@ export const Overlay = styled.div`
 	right: 0;
 	bottom: 0;
 	background: rgba(0, 0, 0, 0.9);
-	margin: 0 20px;
 	z-index: 50;
 `;
 
@@ -59,6 +58,11 @@ export const Inner = styled.div`
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+
+		@media (max-width: 750px) {
+			width: 75%;
+			height: 40%;
+		}
 	}
 `;
 
@@ -73,4 +77,4 @@ export const Close = styled.div`
 	background-color: lightpink;
 `;
 
-export const Iframe = styled.iframe``;
+export const Iframe = styled.iframe`margin: 0 20px;`;
