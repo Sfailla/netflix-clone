@@ -62,7 +62,7 @@ export const Feature = styled.div`
 	display: flex;
 
 	@media (max-width: 750px) {
-		height: 180px;
+		height: auto;
 	}
 `;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../../components';
+import { Icon, VideoPlayer } from '../../components';
 import { useClickOutsideRef } from '../../hooks';
 import { maturityRating } from '../../utils/helpers/maturityRating';
 import {
@@ -146,7 +146,10 @@ Content.Feature = function ContentFeature({ category, children, ...restProps }) 
 				<FeatureClose onClick={() => setShowFeature(false)}>
 					<Icon icon="close-circle" fill="#e50914" size={25} />
 				</FeatureClose>
-				{children}
+				<VideoPlayer>
+					<VideoPlayer.Button />
+					<VideoPlayer.Video trailer={itemFeature.videoId} />
+				</VideoPlayer>
 			</Selection>
 		</Feature>
 	) : null;
