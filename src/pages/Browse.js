@@ -1,5 +1,12 @@
 import React from 'react';
-import { Feature, Dropdown, Header, SearchInput, Icon } from '../components';
+import {
+	Feature,
+	Dropdown,
+	Header,
+	SearchInput,
+	Icon,
+	VideoPlayer
+} from '../components';
 import { Browse } from '../containers';
 import { Container } from '../sharedStyles';
 import { FirebaseContext } from '../firebase';
@@ -90,7 +97,10 @@ export default function BrowsePage() {
 									guise he projects in a futile attempt to feel like he's a part of
 									the world around him.
 								</Feature.Body>
-								<Feature.Button>Play now</Feature.Button>
+								<VideoPlayer>
+									<VideoPlayer.Button />
+									<VideoPlayer.Video trailer="zAGVQLHvwOY" />
+								</VideoPlayer>
 							</Feature.Wrapper>
 						</Feature>
 					</Container>
