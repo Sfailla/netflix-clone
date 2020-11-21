@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content, VideoPlayer } from '../components';
+import { Content } from '../components';
 
 export default function BrowseContainer({ contentList, category }) {
 	return (
@@ -19,12 +19,7 @@ export default function BrowseContainer({ contentList, category }) {
 								);
 							})}
 						</Content.Entities>
-						<Content.Feature category={category}>
-							<VideoPlayer>
-								<VideoPlayer.Button />
-								<VideoPlayer.Video trailer="Cz6oddi0mts" />
-							</VideoPlayer>
-						</Content.Feature>
+						<Content.Feature category={category} />
 					</Content>
 				);
 			})}
