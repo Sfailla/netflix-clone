@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { media } from '../../../sharedStyles';
 
 export const Container = styled.div``;
 
@@ -10,8 +11,7 @@ export const Button = styled.button`
 	outline: 0;
 	padding: 10px 20px;
 	border-radius: 5px;
-	max-width: 130px;
-	font-size: 20px;
+	font-size: 12px;
 	margin-top: 10px;
 	display: flex;
 	justify-content: center;
@@ -24,11 +24,10 @@ export const Button = styled.button`
 		color: #ff1e1e;
 	}
 
-	@media (max-width: 850px) {
-		width: 100px;
-		height: 30px;
-		font-size: 12px;
-	}
+	${media.lg`
+		width: 130px;
+		font-size: 20px;
+	`};
 `;
 
 export const Overlay = styled.div`
@@ -52,17 +51,17 @@ export const Inner = styled.div`
 	margin: 0 auto;
 
 	& iframe {
-		width: 100%;
-		height: 50%;
+		width: 75%;
+		height: 40%;
 		position: absolute;
 		top: 50%;
-		left: 50%;
+		left: 48%;
 		transform: translate(-50%, -50%);
 
-		@media (max-width: 750px) {
-			width: 75%;
-			height: 40%;
-		}
+		${media.md`
+			width: 100%;
+			height: 50%;
+		`};
 	}
 `;
 

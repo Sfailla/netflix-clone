@@ -1,14 +1,43 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
+
+export const SCREEN_SIZES = {
+	sm: 576,
+	md: 720,
+	lg: 960,
+	xl: 1140
+};
+
+export const media = Object.keys(SCREEN_SIZES).reduce((accumulator, label) => {
+	// use em in breakpoints to work properly cross-browser and support users
+	// changing their browsers font-size: https://zellwk.com/blog/media-query-units/
+	const emSize = SCREEN_SIZES[label] / 16;
+	accumulator[label] = (...args) => css`
+		@media (min-width: ${emSize}em) {
+			${css(...args)};
+		}
+	`;
+	return accumulator;
+}, {});
+
+export const formatCss = styleObject => {
+	return JSON.stringify(styleObject).replace(/[{}"']/g, '').replace(/,/g, ';') + ';';
+};
+
+export const mapQueries = queries => {
+	return Object.keys(queries).map(
+		key => media[key]`
+			${formatCss(queries[key])}
+	`
+	);
+};
 
 export const Container = styled.div`
-	width: 100%;
-	height: 100%;
-	padding: 0 56px;
-	overflow-x: hidden;
+	width: ${({ width }) => (width ? width : '100%')};
+	height: ${({ height }) => (height ? height : '100%')};
+	padding: ${({ padding }) => (padding ? padding : '0')};
 
-	@media (max-width: 700px) {
-		padding: 0 10px;
-	}
+	${({ containerQueries }) =>
+		containerQueries ? mapQueries(containerQueries) : null};
 `;
 
 export const Spacer = styled.div`

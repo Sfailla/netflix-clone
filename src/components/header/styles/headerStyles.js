@@ -1,10 +1,14 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
+import { media } from '../../../sharedStyles';
 
 export const Container = styled.div`
 	width: 100%;
 	height: 100%;
 	position: relative;
+
+	${media.lg`height: 60vh;`};
+	${media.xl`height: 75vh;`};
 
 	&::after {
 		content: '';
@@ -25,8 +29,9 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
+	width: 100%;
 	height: 100%;
-	max-width: 1920px;
+
 	margin: 0 auto;
 	z-index: 5;
 `;
@@ -39,10 +44,6 @@ const backgrounds = {
 export const BackgroundImg = styled.div`
 	background: url(${({ src }) => backgrounds[src]}) no-repeat top center;
 	background-size: cover;
-
-	@media (min-width: 1000px) {
-		background-size: ${({ src }) => (src === 'joker' ? 'contain' : 'cover')};
-	}
 `;
 
 export const Frame = styled.div`

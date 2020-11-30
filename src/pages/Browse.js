@@ -25,10 +25,22 @@ export default function BrowsePage() {
 	const { search } = values;
 
 	return (
-		<div>
+		<Container
+			padding={'0 10px'}
+			containerQueries={{
+				md: { padding: '0 20px' },
+				lg: { padding: '0 30px' },
+				xl: { padding: '0 50px' }
+			}}
+		>
 			<Header>
 				<Header.Background backgroundImage={true} src={'joker'}>
-					<Container>
+					<Container
+						containerQueries={{
+							lg: { height: '60vh' },
+							xl: { height: '75vh' }
+						}}
+					>
 						<Header.Frame>
 							<Header.Wrapper direction={width < 700 ? 'column' : 'row'}>
 								<Header.Logo to={ROUTES.HOME} />
@@ -109,6 +121,6 @@ export default function BrowsePage() {
 			<Container>
 				<Browse contentList={contentList} category={category} />
 			</Container>
-		</div>
+		</Container>
 	);
 }

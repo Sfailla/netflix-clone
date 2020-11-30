@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro';
 
+import { media } from '../../../sharedStyles';
+
 export const Container = styled.div`
 	padding: 45px 70px 0px 70px;
 	margin: 0 auto;
@@ -35,13 +37,8 @@ export const Link = styled.a`
 		color: #0071eb;
 	}
 
-	@media (max-width: 740px) {
-		width: 33%;
-	}
-
-	@media (max-width: 500px) {
-		width: 50%;
-	}
+	${media.md`width: 33%;`};
+	${media.sm`width: 50%;`};
 `;
 
 export const Title = styled.div`

@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro';
+import { media } from '../../../sharedStyles';
 
 export const Container = styled.div`
 	width: 100%;
-	height: 100%;
+	height: auto;
 	padding-bottom: 50px;
 	margin: 0;
 	position: relative;
@@ -10,40 +11,33 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-	font-size: 30px;
+	font-size: 26px;
 	color: white;
 	line-height: 1.2;
 	letter-spacing: 2px;
 
-	@media (max-width: 950px) {
-		font-size: 26px;
-	}
+	${media.lg`font-size: 30px;`};
 `;
 
 export const Wrapper = styled.div`
-	width: 50%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 
-	@media (max-width: 950px) {
-		width: 60%;
-	}
-
-	@media (max-width: 700px) {
-		width: 100%;
-	}
+	${media.lg`width: 50%;`};
+	${media.md`width: 60%;`};
 `;
 
 export const Body = styled.p`
 	color: #cccccc;
-	font-size: 18px;
-	line-height: 1.1;
+	font-size: 16px;
+	line-height: normal;
 
-	@media (max-width: 950px) {
-		font-size: 16px;
-		line-height: normal;
-	}
+	${media.lg`
+		font-size: 18px;
+		line-height: 1.1;
+	`};
 `;
 
 export const Button = styled.button`
@@ -68,9 +62,8 @@ export const Button = styled.button`
 		color: #ff1e1e;
 	}
 
-	@media (max-width: 850px) {
+	${media.lg`
 		width: 100px;
-		height: 30px;
 		font-size: 12px;
-	}
+	`};
 `;
