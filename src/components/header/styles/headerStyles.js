@@ -2,13 +2,13 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { media } from '../../../sharedStyles';
 
+// ${media.lg`height: 60vh;`};
+// ${media.xl`height: 75vh;`};
+
 export const Container = styled.div`
 	width: 100%;
 	height: 100%;
 	position: relative;
-
-	${media.lg`height: 60vh;`};
-	${media.xl`height: 75vh;`};
 
 	&::after {
 		content: '';

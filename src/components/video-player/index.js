@@ -6,7 +6,6 @@ import {
 	Button,
 	Overlay,
 	Inner,
-	Close,
 	Iframe
 } from './styles/videoPlayerStyles';
 
