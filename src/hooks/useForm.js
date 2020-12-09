@@ -10,20 +10,23 @@ function useForm(initialState, validate, authenticate) {
 			if (isSubmitting) {
 				const noErrors = Object.keys(errors).length === 0;
 				if (noErrors) {
-					authenticate();
-					setSubmitted(false);
+					if (typeof authenticate === 'function') {
+						authenticate();
+						setSubmitted(false);
+					}
 				} else {
 					console.log('authentication error');
 					setSubmitted(false);
 				}
 			}
 		},
-		[ errors, isSubmitting, values, authenticate ]
+		[ errors, isSubmitting, authenticate ]
 	);
 
 	function handleChange(event) {
 		const { name, value } = event.target;
 		event.persist();
+
 		setValues(prevState => ({
 			...prevState,
 			[name]: value
@@ -32,8 +35,11 @@ function useForm(initialState, validate, authenticate) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const validateErrors = validate(values);
-		setErrors(validateErrors);
+
+		if (typeof validate === 'function') {
+			const validateErrors = validate(values);
+			setErrors(validateErrors);
+		}
 		setSubmitted(true);
 	}
 
