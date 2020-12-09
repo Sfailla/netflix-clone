@@ -27,7 +27,7 @@ export const mapQueries = queries => {
 	return Object.keys(queries).map(
 		key => media[key]`
 			${formatCss(queries[key])}
-	`
+		`
 	);
 };
 
@@ -42,5 +42,5 @@ export const Container = styled.div`
 
 export const Spacer = styled.div`
 	display: block;
-	height: ${({ height }) => height || 10}px;
+	height: ${({ height }) => (height ? height : 10)}px;
 `;
