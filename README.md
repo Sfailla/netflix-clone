@@ -13,4 +13,6 @@ here are some videos of the website:
 
 <img src="./public/images/video/netflix-gif.gif" max-width="100%" height="380" />
 
+<img src="./public/images/video/netflix-gif-2.gif" max-width="100%" height="380" />
+
 ### made by Steven Failla 
