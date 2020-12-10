@@ -9,6 +9,6 @@ cloning the popular site netflix using:
 
 Inspiration from web series by Karl Hadwen => [netflix clone](https://www.youtube.com/watch?v=x_EEwGe-a9o).
 
-![display](https://github.com/Sfailla/netflix-clone/blob/master/public/images/video/netflix-gif.mp4)
+![netflix-video](https://github.com/Sfailla/netflix-clone/blob/master/public/images/video/netflix-gif.gif)
 
 ### made by Steven Failla 
