@@ -1,4 +1,5 @@
 import React from 'react';
+import Fuse from 'fuse.js';
 import {
 	Feature,
 	Dropdown,
@@ -10,19 +11,20 @@ import {
 import { Browse } from '../containers';
 import { Container } from '../sharedStyles';
 import { FirebaseContext } from '../firebase';
-import { useContent, useWindowSize, useForm } from '../hooks';
+import { useWindowSize, useForm, useCollection } from '../hooks';
 import selectionFilter from '../utils/filters/selectionFilter';
 import * as ROUTES from '../constants/routes';
 
 export default function BrowsePage() {
 	const { authUser, firebase } = React.useContext(FirebaseContext);
-	const { handleChange, handleSubmit, values } = useForm({ search: '' });
-	const { movies, series } = useContent();
 	const { width } = useWindowSize();
 	const [ category, setCategory ] = React.useState('series');
+	const { movies } = useCollection('movies');
+	const { series } = useCollection('series');
 
 	const contentList = selectionFilter({ series, movies });
-	const { search } = values;
+
+	const { handleChange, handleSubmit, values, errors } = useForm({ search: '' });
 
 	return (
 		<Container
@@ -68,7 +70,7 @@ export default function BrowsePage() {
 													onChange={handleChange}
 													name="search"
 													type="text"
-													value={search}
+													value={values.search}
 													placeholder=" "
 												/>
 												<SearchInput.Label>Search</SearchInput.Label>

@@ -9,7 +9,7 @@ import { Container } from '../sharedStyles';
 export default function Home() {
 	const { setRegister } = React.useContext(FirebaseContext);
 	const { width } = useWindowSize();
-	const handleClick = () => setRegister(null);
+
 	return (
 		<React.Fragment>
 			<Header>
@@ -20,7 +20,10 @@ export default function Home() {
 								<Header.Logo to={ROUTES.HOME} />
 							</Header.Wrapper>
 
-							<Header.SignInButton onClick={handleClick} to={ROUTES.SIGN_IN}>
+							<Header.SignInButton
+								onClick={() => setRegister(null)}
+								to={ROUTES.SIGN_IN}
+							>
 								Sign In
 							</Header.SignInButton>
 						</Header.Frame>
