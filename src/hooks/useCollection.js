@@ -16,9 +16,11 @@ export default function useCollection(collection) {
 						...doc.data()
 					};
 				});
+
 				setContent(collectionData);
 				setIsLoading(false);
 			});
+
 			return () => unsubscribe;
 		},
 		[ collection, firebase.db ]
