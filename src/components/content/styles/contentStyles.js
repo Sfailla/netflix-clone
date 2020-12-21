@@ -1,69 +1,70 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-	width: 100%;
-	height: 100%;
-	margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
 
-	&::-webkit-scrollbar {
-		display: none;
-	}
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Group = styled.div`
-	margin: 30px 0;
-	padding: 0;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0;
 `;
 
 export const Wrapper = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const Title = styled.h1`
-	font-size: 24px;
-	color: #e5e5e5;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+  font-size: 24px;
+  color: #e5e5e5;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 
-	@media (max-width: 1000px) {
-		font-size: 20px;
-		line-height: 20px;
-		margin-bottom: 10px;
-	}
+  @media (max-width: 1000px) {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Subtitle = styled.h2`
-	font-size: 12px;
-	color: #fff;
-	font-weight: bold;
-	margin: 0;
-	user-select: none;
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  user-select: none;
 `;
 
 export const Text = styled.p`
-	font-size: 10px;
-	color: #fff;
-	margin-top: 5px;
-	margin-bottom: 0;
-	user-select: none;
-	line-height: normal;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 5px;
+  margin-bottom: 0;
+  user-select: none;
+  line-height: normal;
 `;
 
 export const Feature = styled.div`
-	position: relative;
-	margin: 0;
-	height: 360px;
-	background: url(${({ src }) => src}) no-repeat center right / cover;
-	display: flex;
+  position: relative;
+  margin: 0;
+  height: 360px;
+  background: url(${({ src }) => src}) no-repeat center right / cover;
+  display: flex;
 
-	@media (max-width: 750px) {
-		height: auto;
-	}
+  @media (max-width: 750px) {
+    height: auto;
+  }
 `;
 
 export const FeatureTitle = styled(Title)`
@@ -74,9 +75,9 @@ export const FeatureTitle = styled(Title)`
 export const FeatureText = styled(Text)`
   font-size: 18px;
   font-weight: normal;
-	color: #e6e6e6;
-	padding-bottom: 20px;
-	line-height: 1.5;
+  color: #e6e6e6;
+  padding-bottom: 20px;
+  line-height: 1.5;
 
   @media (max-width: 1000px) {
     font-size: 14px;
@@ -84,33 +85,33 @@ export const FeatureText = styled(Text)`
 `;
 
 export const FeatureClose = styled.button`
-	color: white;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	cursor: pointer;
-	background-color: transparent;
-	border: 0;
-	outline: 0;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
 `;
 
 export const Rating = styled.div`
-	background-color: transparent;
-	border: 2px solid;
-	border-color: ${({ rating }) => (rating >= 18 ? 'red' : 'green')};
-	border-radius: 3px;
-	width: 60px;
-	height: 30px;
-	padding: 5px;
-	text-align: center;
-	color: white;
-	font-weight: bold;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-	font-size: 12px;
+  background-color: transparent;
+  border: 2px solid;
+  border-color: ${({ rating }) => (rating >= 18 ? 'red' : 'green')};
+  border-radius: 3px;
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Selection = styled.div`
@@ -135,39 +136,39 @@ export const Selection = styled.div`
 export const Metadata = styled.div``;
 
 export const Entities = styled.div`
-	display: flex;
-	width: 100%;
+  display: flex;
+  width: 100%;
 `;
 
 export const Image = styled.img`
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	cursor: pointer;
-	transition: transform .1s ease-in-out;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
 `;
 
 export const Item = styled.div`
-	width: 100%;
-	height: 100%;
-	flex-grow: 1;
-	border: 3px solid;
-	border-color: ${({ isActive }) => (isActive ? 'white' : 'transparent')};
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  border: 3px solid;
+  border-color: ${({ isActive }) => (isActive ? 'white' : 'transparent')};
 
-	&:hover {
-		${({ isActive }) => !isActive && 'transform: scale(1.05)'};
-	}
+  &:hover {
+    ${({ isActive }) => !isActive && 'transform: scale(1.05)'};
+  }
 
-	transition: transform .1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 
-	${({ isActive }) => isActive && 'transform: scale(1.1)'};
-	${({ isActive }) => isActive && 'position: relative'};
-	${({ isActive }) => isActive && 'z-index: 5'};
+  ${({ isActive }) => isActive && 'transform: scale(1.1)'};
+  ${({ isActive }) => isActive && 'position: relative'};
+  ${({ isActive }) => isActive && 'z-index: 5'};
 
-	${({ isActive }) =>
-		isActive &&
-		`
+  ${({ isActive }) =>
+    isActive &&
+    `
     &::after {
       content: '';
       display: block;
