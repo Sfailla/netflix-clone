@@ -7,7 +7,6 @@ import randomAvatar from '../utils/helpers/randomAvatar';
 // Initialize Firebase
 class Firebase {
   constructor() {
-    app.initializeApp(firebaseConfig);
     this.auth = app.auth();
     this.db = app.firestore();
   }
