@@ -34,5 +34,6 @@ class Firebase {
   }
 }
 
+app.initializeApp(firebaseConfig);
 const firebase = new Firebase();
 export default firebase;
