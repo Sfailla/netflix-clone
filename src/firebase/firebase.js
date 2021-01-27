@@ -4,10 +4,11 @@ import { firebaseConfig } from './config';
 import app from 'firebase/app';
 import randomAvatar from '../utils/helpers/randomAvatar';
 
+// Initialize Firebase
+app.initializeApp(firebaseConfig);
+
 class Firebase {
   constructor() {
-    // Initialize Firebase
-    app.initializeApp(firebaseConfig);
     this.auth = app.auth();
     this.db = app.firestore();
   }
