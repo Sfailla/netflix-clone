@@ -1,6 +1,6 @@
-import firebaseConfig from './config';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { firebaseConfig } from './config';
 import app from 'firebase/app';
 import randomAvatar from '../utils/helpers/randomAvatar';
 
