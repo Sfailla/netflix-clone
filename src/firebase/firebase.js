@@ -1,13 +1,14 @@
 import 'firebase/auth';
 import 'firebase/firestore';
-import { firebaseConfig } from './config';
+import firebaseConfig from './config';
 import app from 'firebase/app';
 import randomAvatar from '../utils/helpers/randomAvatar';
 
 // Initialize Firebase
+app.initializeApp(firebaseConfig);
+
 class Firebase {
   constructor() {
-    app.initializeApp(firebaseConfig);
     this.auth = app.auth();
     this.db = app.firestore();
   }
